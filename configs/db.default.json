@@ -1,0 +1,7 @@
+{
+    "file": "db.default.json",
+    "host": "localhost",
+    "user": "root",
+    "pass": "",
+    "database": "travel"
+}
