@@ -41,21 +41,9 @@ if (isset($_SESSION['MSG'])) {
 // DB 컨피그 기본값
 $DBCONF = array();
 if ($_SERVER['HTTP_HOST'] == 'localhost') { // 로컬호스트
-  $DBCONF = [
-    'file' => 'db.localhost.json',
-    'host' => 'localhost',
-    'user' => 'root',
-    'pass' => '',
-    'database' => 'travel',
-  ];
+  $DBCONF = openJson('configs/db.localhost.default.json');
 } else { // cafe24
-  $DBCONF = [
-    'file' => 'db.cafe24.json',
-    'host' => 'localhost',
-    'user' => 'userid',
-    'pass' => '',
-    'database' => 'userid',
-  ];
+  $DBCONF = openJson('configs/db.cafe24.default.json');
 }
 // 설정파일 로드
 if (fileExists('configs/'.$DBCONF['file'])) {
