@@ -1,0 +1,197 @@
+@charset "UTF-8";
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  font-family: "맑은 고딕", "Malgun Gothic", "Apple SD Gothic Neo", sans-serif;
+  color: #222;
+  font-size: 16px;
+  word-break: break-all;
+  background-color: #eeeeee;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+img {
+  width: 100%;
+}
+
+table {
+  width: 100%;
+  width: -webkit-fill-available;
+  border-collapse: collapse;
+}
+
+#message {
+  width: 100%;
+}
+
+#message .log {
+  padding: 5px 10px;
+  background-color: gray;
+  color: white;
+  font-size: 0.9em;
+  text-align: center;
+}
+
+#message .log.info {
+  background-color: gray;
+}
+
+#message .log.success {
+  background-color: green;
+}
+
+#message .log.error {
+  background-color: red;
+}
+
+header, nav, section, footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+header {
+  height: 40px;
+  background-color: white;
+  border-bottom: 1px solid #aaaaaa;
+}
+
+header.login {
+  display: none;
+}
+
+nav.menu {
+  height: 40px;
+}
+
+nav.menu > ul {
+  height: inherit;
+  display: flex;
+  align-items: center;
+  font-size: 0.95em;
+}
+
+nav.menu > ul li {
+  height: inherit;
+  min-width: 120px;
+  text-align: center;
+}
+
+nav.menu > ul li.active {
+  border-bottom: 4px solid #34a3e7;
+}
+
+nav.menu > ul a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  line-height: 40px;
+}
+
+nav.menu > ul a:hover {
+  color: #34a3e7;
+}
+
+nav.menu > ul li.disabled {
+  color: #aaaaaa;
+}
+
+nav.menu > ul li.disabled a {
+  pointer-events: none;
+}
+
+#container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+#container.login {
+  margin-top: 70px;
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 15px;
+  border-radius: 10px;
+}
+
+section {
+  margin-top: 30px;
+  background-color: white;
+}
+
+section .title {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+section .title.red {
+  color: red;
+}
+
+section .box p {
+  padding: 0 5px;
+  margin-bottom: 10px;
+}
+
+section table {
+  margin-bottom: 15px;
+}
+
+section table th, section table td {
+  padding: 2px 5px;
+}
+
+section table input {
+  min-width: 200px;
+  padding: 3px;
+  border: 1px solid #808080;
+  border-radius: 3px;
+}
+
+section table input[readonly] {
+  background-color: #eee;
+}
+
+section .buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+section .buttons > *:not(:last-child) {
+  margin-right: 10px;
+}
+
+.btn {
+  font-size: 0.95em;
+  padding: 3px;
+  min-width: 80px;
+}
+
+.btn:hover {
+  cursor: pointer;
+}
+
+input[type=radio], input[type=checkbox] {
+  margin-right: 5px;
+}
