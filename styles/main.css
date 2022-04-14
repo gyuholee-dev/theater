@@ -1,7 +1,26 @@
-header { flex-direction: row; }
+/*------------------------*/
+header { height: 100px; margin: auto; flex-direction: row; position: relative; display: flex; flex-wrap: nowrap; border-bottom: 1px solid #cacaca; z-index: 3; text-align: center; }
 
-header .logo { width: 200px; }
+header .logo { width: 200px; height: 100px; position: relative; text-align: center; font-size: 30px; line-height: 100px; }
 
-header .menu { width: 100%; }
+header a { text-decoration: none; }
 
+header menu { width: 100%; }
+
+header .loginSection { width: 400px; position: absolute; right: 0; top: 20px; font-size: 1em; }
+
+header .idPw { flex-wrap: nowrap; display: flex; justify-content: center; text-align: center; }
+
+/*------------------------*/
 main section { width: 100%; max-width: 1200px; }
+
+/*------------------------*/
+footer { margin: auto; display: flex; font-size: 0.8em; border-top: 1px solid #cacaca; text-align: center; }
+
+footer a { text-decoration: none; }
+
+footer .footerlinks { position: relative; display: flex; width: 280px; height: 20px; margin: 0; margin-top: 10px; left: 0; justify-content: space-around; }
+
+footer .footerlist { display: flex; flex-wrap: wrap; position: relative; margin: 0; justify-content: space-around; }
+
+footer .footerlist .li { padding: 0 20px 0 20px; margin: 10px 0px 10px 0px; border-right: #999 1px solid; }

@@ -1,23 +1,89 @@
 // 변수 임포트
 @import "_variables.scss";
-
+/*------------------------*/
 header {
+    height: 100px;
+    margin: auto;
     flex-direction: row;
+    position:relative;
+    display:flex; 
+    flex-wrap: nowrap;
+    border-bottom:  1px solid rgb(202, 202, 202);
+    z-index:3;
+    text-align: center;
+    
     .logo {
         width: 200px;
+        height: 100px;
+        position: relative;
+        text-align:center;
+        font-size: 30px;
+        line-height: 100px;
     }
-    .menu {
+    a { 
+        text-decoration: none;
+    }
+    menu {
         width: 100%;
     }
+    .loginSection{
+        width: 400px;
+        position: absolute;
+        right: 0;
+        top: 20px;
+        font-size: 1em;
+    }
+    .idPw{
+        flex-wrap: nowrap;
+        display: flex;
+        justify-content: center;
+        text-align: center;
+    }
 }
-
+/*------------------------*/
 main {
     section {
         width: 100%;
         max-width: $max-width;
     }
 }
-
+/*------------------------*/
 footer {
+    margin: auto;
+    display: flex;
+    font-size: 0.8em;
+    border-top:  1px solid rgb(202, 202, 202);
+    text-align: center;
+    // border: 1px solid;
 
+    a { 
+        text-decoration: none;
+    }
+
+    .footerlinks {
+        position: relative;
+        display: flex;
+        width: 280px;
+        height: 20px;
+        margin: 0;
+        margin-top: 10px;
+        left: 0;
+        justify-content: space-around;
+        // border: 1px solid;
+    }
+    .footerlist{
+        display: flex;
+        flex-wrap: wrap;
+        position: relative;
+        margin: 0;
+        justify-content:space-around ;
+        // border: 1px solid;
+        .li{
+            padding:0 20px 0 20px;
+            margin: 10px 0px 10px 0px;
+            border-right:#999 1px solid;
+        }
+    }
 }
+
+
