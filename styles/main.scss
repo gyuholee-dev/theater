@@ -1,0 +1,20 @@
+// 변수 ---------------------------------------------------------
+$color-black: black;
+$color-background: initial;
+
+// 엘리먼트 기본값 ---------------------------------------------------------
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  font-family: "맑은 고딕", "Malgun Gothic", "Apple SD Gothic Neo", sans-serif;
+  color: $color-black;
+  font-size: 16px;
+  word-break: break-all;
+  background-color: $color-background;
+}
