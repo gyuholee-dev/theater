@@ -2,7 +2,13 @@
 @import "_variables.scss";
 
 header {
-
+    flex-direction: row;
+    .logo {
+        width: 200px;
+    }
+    .menu {
+        width: 100%;
+    }
 }
 
 main {

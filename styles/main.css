@@ -1,1 +1,7 @@
+header { flex-direction: row; }
+
+header .logo { width: 200px; }
+
+header .menu { width: 100%; }
+
 main section { width: 100%; max-width: 1200px; }
