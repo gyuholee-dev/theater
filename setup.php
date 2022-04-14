@@ -53,10 +53,10 @@ if ($USER && $ACT != 'login') {
       <li class="$active[db]">
         <a href="setup.php?action=db">MariaDB 설정</a>
       </li>
-      <li class="$active[table] $disabled">
+      <li class="$active[table] disabled">
         <a href="setup.php?action=table">테이블 생성</a>
       </li>
-      <li class="$active[admin] $disabled">
+      <li class="$active[admin] disabled">
         <a href="setup.php?action=admin">관리자 계정</a>
       </li>
       <li class="$active[data] disabled">
