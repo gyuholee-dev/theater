@@ -1,0 +1,19 @@
+#screen { width: 100%; }
+
+#screen .title { font-size: 1.5em; font-weight: bold; margin-top: 15px; margin-bottom: 15px; }
+
+#screen .content { padding: 25px; display: flex; flex-direction: column; border: 1px solid grey; border-radius: 15px; }
+
+#screen .content .select { display: flex; justify-content: center; }
+
+#screen .content .select .check { cursor: pointer; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; margin: 5px; border: 1px solid grey; border-radius: 5px; }
+
+#screen .content .select .check.disabled { background-color: grey; }
+
+#screen .content .select .check.selected { background-color: #00bcd4; }
+
+#payment { display: flex; padding: 15px; }
+
+#payment .result { padding: 10px; width: 100%; }
+
+#payment .price { font-size: 1.5em; font-weight: bold; padding: 10px; width: 200px; border: 1px solid grey; border-radius: 5px; }

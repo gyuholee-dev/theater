@@ -1,0 +1,54 @@
+#screen {
+    width: 100%;
+    .title {
+        font-size: 1.5em;
+        font-weight: bold;
+        margin-top: 15px;
+        margin-bottom: 15px;
+    }
+    .content {
+        padding: 25px;
+        display: flex;
+        flex-direction: column;
+        border: 1px solid grey;
+        border-radius: 15px;
+        .select {
+            display: flex;
+            justify-content: center;
+            .check {
+                cursor: pointer;
+                width: 50px;
+                height: 50px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin: 5px;
+                border: 1px solid grey;
+                border-radius: 5px;
+                &.disabled {
+                    background-color: grey;
+                }
+                &.selected {
+                    background-color: #00bcd4;
+                }
+            }
+        }
+    }
+}
+
+#payment {
+    display: flex;
+    padding: 15px;
+    .result {
+        padding: 10px;
+        width: 100%;
+    }
+    .price {
+        font-size: 1.5em;
+        font-weight: bold;
+        padding: 10px;
+        width: 200px;
+        border: 1px solid grey;
+        border-radius: 5px;
+    }
+}
