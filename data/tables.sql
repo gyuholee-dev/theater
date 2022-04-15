@@ -96,6 +96,10 @@ CREATE TABLE theater_screen (
 
     PRIMARY KEY (scrnday, scrnnum, scrncnt)
 );
+INSERT INTO theater_screen
+(scrnday, scrnnum, scrncnt, scrnstart, scrnend, firmcode)
+VALUES
+('2022-04-23', '01', '01', '12:15', '14:30', '20192206D');
 
 
 /* ticket 티켓
@@ -113,11 +117,15 @@ CREATE TABLE theater_ticket (
     scrnnum CHAR(2),
     scrncnt CHAR(2),
     firmcode CHAR(10),
-    seatnum CHAR(2),
+    seatnum CHAR(3),
     userid CHAR(20),
     payment INT,
     PRIMARY KEY (ticketnum)
 );
+INSERT INTO theater_ticket
+(ticketnum, scrnnum, scrncnt, firmcode, seatnum, userid, payment)
+VALUES
+('0101-0423-1268-231', '01', '01', '20192206D', 'b05', 'testuser', 2000);
 
 /* member 회원
 userid 회원아이디
@@ -130,7 +138,7 @@ points 포인트
 groups 권한 그룹: admin, user
 
 -- 패스워드 암호화 참고:
--- https://zinoui.com/blog/storing-passwords-securely
+-- https://zinoui.com/blog/storing-password s-securely
 -- AES_ENCRYPT('password', 'key')
 -- AES_DECRYPT('password', 'key')
 */
@@ -144,6 +152,10 @@ CREATE TABLE theater_member (
     groups CHAR(10) DEFAULT 'user',
     PRIMARY KEY (userid)
 );
+INSERT INTO theater_member
+(userid, password, username, email, phone, points, groups)
+VALUES
+('testuser', '1234', 'TestUser', 'test@test.com', '000-0000-0000', 10000, 'user');
 
 /* movie 영화
 firmcode 영화코드 (https://www.kobis.or.kr/kobis/business/mast/mvie/searchUserMovCdList.do)
@@ -176,14 +188,20 @@ CREATE TABLE theater_movie (
 
     PRIMARY KEY (firmcode)
 );
+INSERT INTO theater_movie
+(firmcode, firmtitle, director, actors, summary, topimg, image1, image2, image3, image4, image5, synopsis)
+VALUES
+('20192206D', '백두산', 'director', 'actors', 'summary', 'topimg', 'image1', 'image2', 'image3', 'image4', 'image5', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque fuga commodi obcaecati delectus quaerat earum ad odit ducimus placeat doloremque corporis modi quia, harum cum exercitationem, veritatis velit aliquid nam.');
 
 /* board 게시판
 postnum 게시물번호: 자동증가
 category 게시판 카테고리: notice, qna, review, etc...
 title 게시물제목: 최대 80자
-content 게시물내용: 최대 1000자
-writer 게시물작성자: = member userid
 regdate 게시물작성일: Y-m-d H:i:s (19자)
+writer 게시물작성자: = member userid
+
+content 게시물내용: 최대 1000자
+
 secret 게시물비밀글: 0(공개), 1(비밀글)
 hit 게시물 조회수
 */
@@ -191,13 +209,17 @@ CREATE TABLE theater_board (
     postnum INT AUTO_INCREMENT,
     category CHAR(10),
     title VARCHAR(80),
-    content TEXT,
-    writer CHAR(20),
     regdate CHAR(19),
+    writer CHAR(20),
+    content TEXT,
     secret BOOLEAN DEFAULT 0,
-    hit INT,
+    hit INT DEFAULT 0,
     PRIMARY KEY (postnum)
 );
+INSERT INTO theater_board
+(category, title, regdate, writer, content)
+VALUES
+('notice', '테스트 타이틀', '2022-04-14 12:00:00', 'testuser', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque fuga commodi obcaecati delectus quaerat earum ad odit ducimus placeat doloremque corporis modi quia, harum cum exercitationem, veritatis velit aliquid nam.');
 
 
 
