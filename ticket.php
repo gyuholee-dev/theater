@@ -18,7 +18,7 @@ $scrnData = mysqli_fetch_assoc($res);
         var seats = [];
         function doSome(elem) {
             var elem = $(elem);
-            console.log(elem[0].value);
+            // console.log(elem[0].value);
             if (elem.hasClass('disabled')) {
                 return false;
             }
@@ -29,7 +29,7 @@ $scrnData = mysqli_fetch_assoc($res);
                 elem.addClass('selected');
                 seats.push(elem[0].value);
             }
-            seats.length * 2000;
+            
             document.querySelector('#payment>.result').innerHTML = seats.join(', ');
             document.querySelector('#payment>.price').innerHTML = seats.length * 2000;
             
