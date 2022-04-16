@@ -2,7 +2,7 @@
   {
     "userid": "testuser",
     "password": "1234",
-    "username": "TestUser",
+    "nickname": "TestUser",
     "email": "test@test.com",
     "phone": "000-0000-0000",
     "points": 10000,

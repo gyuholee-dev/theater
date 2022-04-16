@@ -1,7 +1,7 @@
 CREATE TABLE theater_member (
     userid CHAR(20) NOT NULL,
     password BLOB,
-    username VARCHAR(20),
+    nickname VARCHAR(20),
     email CHAR(30),
     phone CHAR(13),
     points INT DEFAULT 10000,
