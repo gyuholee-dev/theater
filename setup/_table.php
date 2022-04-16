@@ -21,11 +21,11 @@ if (isset($_POST['confirm'])) {
     }
   }
 
-  if ($_POST['confirm']=='생성') { // DB생성
+  if ($_POST['confirm']=='생성') {
     foreach ($tables as $key => $tableName) {
       createTable($tableName, $drop, true);
     }
-  } elseif ($_POST['confirm']=='테스트') { // 테스트
+  } elseif ($_POST['confirm']=='테스트') {
     foreach ($tables as $key => $tableName) {
       checkTable($tableName, true);
     }

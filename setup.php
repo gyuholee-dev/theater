@@ -31,9 +31,9 @@ if (!$USER) {
       break;
   
     // 데이터 입력
-    // case 'data':
-    //   include 'setup/_data.php';
-    //   break;
+    case 'data':
+      include 'setup/_data.php';
+      break;
     
     default:
       header('Location: setup.php?action=db');
