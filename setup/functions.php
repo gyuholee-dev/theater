@@ -53,6 +53,26 @@ function makeCode($max=32, $upper=false) {
 
 // DB 함수 ------------------------------------------------
 
+// AES 암호화
+function AES_ENCRYPT($plaintext, $key) {
+  // TODO: PHP 암호화 라이브러리를 통해 암호화 구현
+  global $DB;
+  $sql = "SELECT AES_ENCRYPT('$plaintext', '$key') AS ciphertext ";
+  $result = mysqli_query($DB, $sql);
+  $row = mysqli_fetch_assoc($result);
+  return $row['ciphertext'];
+}
+
+// AES 암호해독
+function AES_DECRYPT($ciphertext_raw, $key) {
+  // TODO: PHP 암호화 라이브러리를 통해 해독 구현
+  global $DB;
+  $sql = "SELECT AES_DECRYPT('$ciphertext_raw', '$key') AS plaintext ";
+  $result = mysqli_query($DB, $sql);
+  $row = mysqli_fetch_assoc($result);
+  return $row['plaintext'];
+}
+
 // DB 로그인
 // 주의: mysqli_report(MYSQLI_REPORT_ALL) 설정 필요
 function loginDB($dbConfig, $log=false) {
@@ -249,6 +269,27 @@ function clearData($table, $log=false) {
   }
 }
 
+// 데이터 삭제
+function deleteData($table, $key, $value, $log=false) {
+  global $DB;
+  global $MSG;
+
+  $sql = "DELETE FROM $table WHERE $key = '$value'";
+
+  try {
+    mysqli_query($DB, $sql);
+    if ($log) {
+      pushLog("삭제 성공: $value", 'success');
+    }
+    return true;
+  } catch (Exception $e) {
+    if ($log) {
+      pushLog("삭제 실패: $value", 'error');
+    }
+    return false;
+  }
+}
+
 // 데이터 입력
 function insertData($table, $data, $log=false) {
   global $DB;
@@ -310,4 +351,31 @@ function checkData($table, $log=false) {
     }
     return false;
   }
+}
+
+// 레코드 체크
+function checkRecord($table, $key, $value, $log=false) {
+  global $DB;
+  global $MSG;
+  mysqli_report(MYSQLI_REPORT_STRICT);
+
+  $sql = "SELECT * FROM $table WHERE $key = '$value'";
+  $res = mysqli_query($DB, $sql);
+  $rows = mysqli_num_rows($res);
+  mysqli_report(MYSQLI_REPORT_ALL);
+
+  if ($rows > 0) {
+    if ($log) {
+      pushLog("$table: $rows", 'success');
+    }
+    return mysqli_fetch_assoc($res);
+  } else {
+    if ($log) {
+      pushLog("$table: $rows", 'error');
+    }
+    return false;
+  }
+}
+function getRecord($table, $key, $value, $log=false) {
+  return checkRecord($table, $key, $value, $log);
 }
