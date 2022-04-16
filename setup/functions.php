@@ -227,3 +227,87 @@ function checkTable($table, $log=false) {
   }
   return true;
 }
+
+// 데이터 클리어
+function clearData($table, $log=false) {
+  global $DB;
+  global $MSG;
+
+  $sql = "DELETE FROM $table";
+
+  try {
+    mysqli_query($DB, $sql);
+    if ($log) {
+      pushLog("클리어 성공: $table", 'success');
+    }
+    return true;
+  } catch (Exception $e) {
+    if ($log) {
+      pushLog("클리어 실패: $table", 'error');
+    }
+    return false;
+  }
+}
+
+// 데이터 입력
+function insertData($table, $data, $log=false) {
+  global $DB;
+  global $MSG;
+
+  $sqlKey = '';
+  $sqlValue = '';
+  $i = 0;
+  $cnt = count($data);
+  foreach ($data as $key => $value) {
+    $sqlKey .= $key;
+    $sqlValue .= "'".addslashes($value)."'";
+    if ($i < $cnt-1) {
+      $sqlKey .= ', ';
+      $sqlValue .= ', ';
+    }
+    $i++;
+  }
+  $sql = "INSERT INTO $table ($sqlKey) VALUES ($sqlValue)";
+
+  try {
+    mysqli_query($DB, $sql);
+    if ($log) {
+      pushLog("입력 성공: $table", 'success');
+    }
+    return true;
+  } catch (Exception $e) {
+    if ($log) {
+      pushLog("입력 실패: $table", 'error');
+    }
+    return false;
+  }
+}
+function insertDataAll($table, $log=false) {
+  $tableData = openJson('data/'.$table.'.json');
+  foreach ($tableData as $data) {
+    insertData($table, $data, $log);
+  }
+}
+
+// 데이터 체크
+function checkData($table, $log=false) {
+  global $DB;
+  global $MSG;
+  mysqli_report(MYSQLI_REPORT_STRICT);
+
+  $sql = "SELECT * FROM $table";
+  $rows = mysqli_num_rows(mysqli_query($DB, $sql));
+  mysqli_report(MYSQLI_REPORT_ALL);
+
+  if ($rows > 0) {
+    if ($log) {
+      pushLog("$table: $rows", 'success');
+    }
+    return true;
+  } else {
+    if ($log) {
+      pushLog("$table: $rows", 'error');
+    }
+    return false;
+  }
+}
