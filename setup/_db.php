@@ -51,8 +51,8 @@ $content .= <<<HTML
       </table>
       <div class="buttons">
         <input class="btn" type="submit" name="confirm" value="DB생성" $disabled>
-        <input class="btn" type="submit" name="confirm" value="테스트">
         <input class="btn" type="submit" name="confirm" value="설정저장">
+        <input class="btn" type="submit" name="confirm" value="테스트">
       </div>
     </form>
   </section>
