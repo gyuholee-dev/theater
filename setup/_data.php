@@ -3,6 +3,13 @@
 // DB 접속 
 connectDB($DBCONF, false);
 
+// 어드민 데이터
+$conf = openJson('configs/admin.json');
+$col = $conf['columns'];
+
+// 어드민 데이터 존재 검사
+$admin = getRecord($conf['table'], $col['id'][0], $col['id'][1]);
+
 // 지우기
 $clear = true;
 
@@ -25,6 +32,10 @@ if (isset($_POST['confirm'])) {
     foreach ($tables as $key => $tableName) {
       if ($clear) {
         clearData($tableName, false);
+        // 어드민 데이터 존재시 재입력
+        if ($tableName==$conf['table'] && $admin !== false) {
+          insertData($tableName, $admin, true);
+        }
       }
       insertDataAll($tableName, true);
     }

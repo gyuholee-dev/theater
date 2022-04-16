@@ -1,10 +1,25 @@
 {
-  "table": "theater_member",
-  "columns": {
-    "id" : ["userid", "admin"],
-    "pass" : ["password", ""],
-    "name" : ["nickname", ""],
-    "mail" : ["email", ""],
-    "perm" : ["groups", "admin"]
-  }
+    "table": "theater_member",
+    "columns": {
+        "id": [
+            "userid",
+            "admin"
+        ],
+        "pass": [
+            "password",
+            ""
+        ],
+        "name": [
+            "nickname",
+            ""
+        ],
+        "mail": [
+            "email",
+            ""
+        ],
+        "perm": [
+            "groups",
+            "admin"
+        ]
+    }
 }

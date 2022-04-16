@@ -56,11 +56,11 @@ if ($USER && $ACT != 'login') {
       <li class="$active[table] $disabled">
         <a href="setup.php?action=table">테이블 생성</a>
       </li>
-      <li class="$active[data] $disabled">
-        <a href="setup.php?action=data">데이터 입력</a>
-      </li>
       <li class="$active[admin] $disabled">
         <a href="setup.php?action=admin">관리자 계정</a>
+      </li>
+      <li class="$active[data] $disabled">
+        <a href="setup.php?action=data">데이터 입력</a>
       </li>
       <li class="$disabled">
         <a href="main.php">사이트 메인</a>

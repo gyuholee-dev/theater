@@ -1,7 +1,7 @@
 <?php
 require_once 'setup/functions.php';
 ini_set('display_errors', 'On');
-mysqli_report(MYSQLI_REPORT_ALL);
+mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 session_start();
 
 // 글로벌 변수

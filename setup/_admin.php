@@ -21,21 +21,25 @@ if ($admin !== false) {
 if (isset($_POST['confirm'])) {
 
   if ($_POST['confirm']=='입력') {
-      $data = [];
-      foreach ($col as $key => $value) {
-          if ($key == 'id') {
-              deleteData($table, $value[0], $_POST[$key]);
-              $data[$value[0]] = $_POST[$key];
-          } elseif ($key == 'pass') {
-              $data[$value[0]] = AES_ENCRYPT($_POST[$key], $_POST[$key]);
-          } else {
-              $data[$value[0]] = $_POST[$key];
-          }
-      }
-      insertData($table, $data, true);
+    // 어드민 아이디를 컨피그에 저장
+    $conf['columns']['id'][1] = $_POST['id'];
+    saveJson('configs/admin.json', $conf);
 
-      $_SESSION['MSG'] = $MSG;
-      header('Location: setup.php?action=admin');
+    $data = [];
+    foreach ($col as $key => $value) {
+      if ($key == 'id') {
+        deleteData($table, $value[0], $_POST[$key]);
+        $data[$value[0]] = $_POST[$key];
+      } elseif ($key == 'pass') {
+        $data[$value[0]] = AES_ENCRYPT($_POST[$key], $_POST[$key]);
+      } else {
+        $data[$value[0]] = $_POST[$key];
+      }
+    }
+    insertData($table, $data, true);
+
+    $_SESSION['MSG'] = $MSG;
+    header('Location: setup.php?action=admin');
 
   } elseif ($_POST['confirm']=='테스트') {
     checkRecord($table, $col['id'][0], $_POST['id'], true);
@@ -55,7 +59,7 @@ foreach ($col as $key => $value) {
   $type = ($key=='mail')?'email':$type;
   $readonly = ($key=='perm')?'readonly':'';
   $tableInputs .= "<tr><td>$value[0]</td><td>";
-  $tableInputs .= "<input type=\"$type\" name=\"$key\" value=\"$value[1]\" required $readonly>";
+  $tableInputs .= "<input type=\"$type\" name=\"$key\" value=\"$value[1]\" $readonly>";
   $tableInputs .= "</td></tr>";
 }
 

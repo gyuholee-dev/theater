@@ -74,7 +74,6 @@ function AES_DECRYPT($ciphertext_raw, $key) {
 }
 
 // DB 로그인
-// 주의: mysqli_report(MYSQLI_REPORT_ALL) 설정 필요
 function loginDB($dbConfig, $log=false) {
   global $DB;
   global $MSG;
@@ -230,20 +229,18 @@ function createTable($table, $drop=false, $log=false) {
 function checkTable($table, $log=false) {
   global $DB;
   global $MSG;
-  mysqli_report(MYSQLI_REPORT_STRICT);
   
   $sql = "SHOW TABLES LIKE '$table'";
   $rows = mysqli_num_rows(mysqli_query($DB, $sql));
-  mysqli_report(MYSQLI_REPORT_ALL);
 
   if ($rows == 0) {
     if ($log) {
-      pushLog("테이블 없음: $table", 'success');
+      pushLog("테이블 없음: $table", 'error');
     }
     return false;
   }
   if ($log) {
-    pushLog("테이블 있음: $table", 'error');
+    pushLog("테이블 있음: $table", 'success');
   }
   return true;
 }
@@ -334,11 +331,9 @@ function insertDataAll($table, $log=false) {
 function checkData($table, $log=false) {
   global $DB;
   global $MSG;
-  mysqli_report(MYSQLI_REPORT_STRICT);
 
   $sql = "SELECT * FROM $table";
   $rows = mysqli_num_rows(mysqli_query($DB, $sql));
-  mysqli_report(MYSQLI_REPORT_ALL);
 
   if ($rows > 0) {
     if ($log) {
@@ -357,21 +352,19 @@ function checkData($table, $log=false) {
 function checkRecord($table, $key, $value, $log=false) {
   global $DB;
   global $MSG;
-  mysqli_report(MYSQLI_REPORT_STRICT);
 
   $sql = "SELECT * FROM $table WHERE $key = '$value'";
   $res = mysqli_query($DB, $sql);
   $rows = mysqli_num_rows($res);
-  mysqli_report(MYSQLI_REPORT_ALL);
 
   if ($rows > 0) {
     if ($log) {
-      pushLog("$table: $rows", 'success');
+      pushLog("레코드 있음: $value", 'success');
     }
     return mysqli_fetch_assoc($res);
   } else {
     if ($log) {
-      pushLog("$table: $rows", 'error');
+      pushLog("레코드 없음: $value", 'error');
     }
     return false;
   }
