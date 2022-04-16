@@ -4,16 +4,32 @@
 
 #screen .content { padding: 25px; display: flex; flex-direction: column; border: 1px solid grey; border-radius: 15px; }
 
+#screen .content .screen { width: 400px; align-self: center; text-align: center; padding-bottom: 5px; border-bottom: 4px solid #ddd; margin-bottom: 15px; }
+
 #screen .content .select { display: flex; justify-content: center; }
 
-#screen .content .select .check { cursor: pointer; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; margin: 5px; border: 1px solid grey; border-radius: 5px; }
+#screen .content .select .check { cursor: pointer; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; margin: 5px; border: 1px solid grey; border-radius: 5px; text-transform: uppercase; }
 
 #screen .content .select .check.disabled { background-color: grey; }
 
 #screen .content .select .check.selected { background-color: #00bcd4; }
 
-#payment { display: flex; padding: 15px; }
+#screen .content .select .check:nth-child(5) { margin-right: 15px; }
 
-#payment .result { padding: 10px; width: 100%; }
+#screen .content .select .check:nth-child(6) { margin-left: 15px; }
 
-#payment .price { font-size: 1.5em; font-weight: bold; padding: 10px; width: 200px; border: 1px solid grey; border-radius: 5px; }
+#result { display: flex; padding: 15px; }
+
+#result .ticket { padding: 0 45px 0 15px; flex-grow: 1; }
+
+#result .ticket .box { line-height: 1.6; padding: 0 5px; }
+
+#result .ticket .box.title { font-weight: bold; font-size: 1.5em; border-bottom: 1px solid grey; margin-bottom: 10px; }
+
+#result .payment { display: flex; flex-direction: column; padding: 10px; width: 200px; min-height: 200px; border: 2px solid #477eff; border-radius: 5px; }
+
+#result .payment .title { font-size: 1.5em; font-weight: bold; padding-bottom: 5px; margin-bottom: 10px; border-bottom: 1px solid grey; }
+
+#result .payment .price { font-size: 1.5em; font-weight: bold; align-self: end; justify-self: start; }
+
+#result .payment input { cursor: pointer; margin-top: auto; align-self: center; font-size: 1.25em; font-weight: bold; width: fit-content; min-width: 120px; padding: 5px 10px; }
