@@ -34,6 +34,11 @@ if (!$USER) {
     case 'data':
       include 'setup/_data.php';
       break;
+
+    // 메인
+    case 'main':
+      include 'setup/_main.php';
+      break;
     
     default:
       header('Location: setup.php?action=db');
@@ -63,7 +68,7 @@ if ($USER && $ACT != 'login') {
         <a href="setup.php?action=data">데이터 입력</a>
       </li>
       <li class="$disabled">
-        <a href="main.php">사이트 메인</a>
+        <a href="setup.php?action=main">사이트 메인</a>
       </li>
     </ul>
   HTML;
