@@ -191,7 +191,7 @@ function createTable($table, $drop=false, $log=false) {
     mysqli_query($DB, $sql);
   }
 
-  $sql = file_get_contents('data/'.$table.'.sql');
+  $sql = str_replace (';', '', file_get_contents('data/'.$table.'.sql'));
   try {
     mysqli_query($DB, $sql);
     if ($log) {

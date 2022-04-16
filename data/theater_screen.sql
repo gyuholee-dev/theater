@@ -65,11 +65,3 @@ CREATE TABLE theater_screen (
 
     PRIMARY KEY (scrnday, scrnnum, scrncnt)
 );
-
-INSERT INTO theater_screen
-(scrnday, scrnnum, scrncnt, scrnstart, scrnend, firmcode)
-VALUES
-('2022-04-23', '01', '01', '12:15', '14:30', '20192206D');
-UPDATE theater_screen 
-SET seat_b05 = '0101-0423-1268-231'
-WHERE scrnday = '2022-04-23' AND scrnnum = '01' AND scrncnt = '01';

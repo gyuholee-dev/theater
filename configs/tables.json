@@ -1,0 +1,4 @@
+{
+    "prefix": "theater",
+    "tables": ["screen", "ticket", "member", "movie", "board"]
+}

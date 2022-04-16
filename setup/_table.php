@@ -3,62 +3,59 @@
 // DB 접속 
 connectDB($DBCONF, false);
 
-// 테이블 기본값
-$prefix = 'travel_';
+// 드랍
 $drop = true;
-$tables = [
-  'item' => $prefix.'item',
-  'member' => $prefix.'member',
-  'booking' => $prefix.'booking',
-  'board' => $prefix.'board',
-];
+
+// 테이블 컨피그
+$tableConfig = openJson('configs/tables.json');
+$prefix = $tableConfig['prefix'];
 
 // 포스트 서브밋 처리
 if (isset($_POST['confirm'])) {
   $drop = isset($_POST['drop']) ? true : false;
-  $tables = [
-    'item' => $_POST['item'],
-    'member' => $_POST['member'],
-    'booking' => $_POST['booking'],
-    'board' => $_POST['board'],
-  ];
+  $tables = [];
+  foreach ($tableConfig['tables'] as $table) {
+    $tableName = $prefix.'_'.$table;
+    if ($_POST[$tableName] != '') {
+      $tables[$table] = $tableName;
+    }
+  }
 
   if ($_POST['confirm']=='생성') { // DB생성
-    foreach ($tables as $key => $table) {
-      createTable($table, $drop, true);
+    foreach ($tables as $key => $tableName) {
+      createTable($tableName, $drop, true);
     }
   } elseif ($_POST['confirm']=='테스트') { // 테스트
-    foreach ($tables as $key => $table) {
-      checkTable($table, true);
+    foreach ($tables as $key => $tableName) {
+      checkTable($tableName, true);
     }
   }
   $_SESSION['MSG'] = $MSG;
   header('Location: setup.php?action=table');
 }
 
+// 테이블 기본값
+$tables = [];
+foreach ($tableConfig['tables'] as $table) {
+  $tableName = $prefix.'_'.$table;
+  $fileName = $tableName.'.sql';
+  $tables[$tableName] = file_exists('data/'.$fileName)?$fileName:'';
+}
+
 $checked = $drop ? 'checked' : '';
+$tableInputs = '';
+foreach ($tables as $tableName => $fileName) {
+  $tableInputs .= "<tr><td>$tableName</td><td>";
+  $tableInputs .= "<input type=\"text\" name=\"$tableName\" value=\"$fileName\" readonly>";
+  $tableInputs .= "</td></tr>";
+}
 
 $content .= <<<HTML
   <section class="setup">
     <div class="title">테이블 생성</div>
     <form method="post" action="">
       <table>
-        <tr>
-          <td>상품</td>
-          <td><input type="text" name="item" value="$tables[item]" readonly></td>
-        </tr>
-        <tr>
-          <td>회원</td>
-          <td><input type="text" name="member" value="$tables[member]" readonly></td>
-        </tr>
-        <tr>
-          <td>주문</td>
-          <td><input type="text" name="booking" value="$tables[booking]" readonly></td>
-        </tr>
-        <tr>
-          <td>게시판</td>
-          <td><input type="text" name="board" value="$tables[board]" readonly></td>
-        </tr>
+        $tableInputs
       </table>
       <div class="buttons">
         <label><input type="checkbox" name="drop" $checked>드랍</label>
