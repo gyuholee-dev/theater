@@ -4,7 +4,7 @@ require_once 'includes/functions.php';
 require_once 'includes/elements.php';
 ini_set('display_errors', 'On');
 ini_set('session.use_strict_mode', 0);
-mysqli_report(MYSQLI_REPORT_ALL);
+mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 session_start();
 
 // 패스 상수 선언

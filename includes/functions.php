@@ -141,29 +141,6 @@ function AES_DECRYPT($ciphertext_raw, $key)
     return $row['plaintext'];
 }
 
-// DB 로그인
-// 주의: mysqli_report(MYSQLI_REPORT_ALL) 설정 필요
-function loginDB($dbConfig, $log=false)
-{
-    global $DB;
-    global $MSG;
-    foreach ($dbConfig as $key => $value) {
-        $$key = $value;
-    }
-    try {
-        $DB = mysqli_connect('localhost', $user, $pass);
-        if ($log) {
-            pushLog('로그인 성공', 'success');
-        }
-        return true;
-    } catch (Exception $e) {
-        if ($log) {
-            pushLog('로그인 실패: '.$e->getMessage(), 'error');
-        }
-        return false;
-    }
-}
-
 // DB 접속
 function connectDB($dbConfig, $log=false)
 {
@@ -210,20 +187,18 @@ function checkTable($table, $log=false)
 {
     global $DB;
     global $MSG;
-    mysqli_report(MYSQLI_REPORT_STRICT);
-  
+    
     $sql = "SHOW TABLES LIKE '$table'";
     $rows = mysqli_num_rows(mysqli_query($DB, $sql));
-    mysqli_report(MYSQLI_REPORT_ALL);
-
+  
     if ($rows == 0) {
         if ($log) {
-            pushLog("테이블 없음: $table", 'success');
+            pushLog("테이블 없음: $table", 'error');
         }
         return false;
     }
     if ($log) {
-        pushLog("테이블 있음: $table", 'error');
+        pushLog("테이블 있음: $table", 'success');
     }
     return true;
 }
