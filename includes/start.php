@@ -21,15 +21,23 @@ if (basename($_SERVER['PHP_SELF']) !== 'main.php') {
 
 // 헤더
 if ($USER) {
-  $userLink = '<a href="main.php?page=mypage">예매내역</a>';
-  $loginLink = '<a href="main.php?page=logout">로그아웃</a>';
+    $userLinks = <<<HTML
+        <li><a href="main.php?page=ticket">티켓</a></li>
+        <pre> | </pre>
+        <li><a href="main.php?page=mypage">예매내역</a></li>
+        <pre> | </pre>
+        <li><a href="main.php?page=logout">로그아웃</a></li>
+    HTML;
 } else {
-  $userLink = '<a href="main.php?page=register">회원가입</a>';
-  $loginLink = '<a href="main.php?page=login">로그인</a>';
+    $userLinks = <<<HTML
+        <li><a href="main.php?page=register">회원가입</a></li>
+        <pre> | </pre>
+        <li><a href="main.php?page=login">로그인</a></li>
+    HTML;
+    $ticketLink = '';
 }
 $header_data = [
-  'userLink' => $userLink,
-  'loginLink' => $loginLink,
+  'userLinks' => $userLinks
 ];
 $header = renderElement(TPL.'header.html', $header_data);
 
