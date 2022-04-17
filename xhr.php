@@ -38,6 +38,7 @@ function xhr_getMsg() {
     global $MSG;
     if (isset($MSG)) {
         echo json_encode($MSG);
+        unset($_SESSION['MSG']);
     }
 }
 

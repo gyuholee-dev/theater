@@ -10,7 +10,7 @@ $aside = '';
 $footer = '';
 
 // main.php 이외 파일을 로드할 경우
-if (basename($_SERVER['PHP_SELF']) != 'main.php') {
+if (basename($_SERVER['PHP_SELF']) !== 'main.php') {
     // 헤드
     $head_data = [
         'title' => "$INFO[title] : $INFO[subtitle]",

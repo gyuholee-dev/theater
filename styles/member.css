@@ -1,0 +1,37 @@
+section#member { display: flex; flex-direction: column; align-items: center; min-height: 600px; }
+
+#inputbox { min-width: 340px; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 15px; border-radius: 10px; border: 1px solid rgba(0, 0, 0, 0.25); box-shadow: 0 2px 16px rgba(0, 0, 0, 0.1); background-color: white; margin-top: 80px; }
+
+#inputbox.login { margin-top: 80px; }
+
+#inputbox .title { font-size: 1.5em; font-weight: bold; margin-top: 10px; margin-bottom: 15px; }
+
+#inputbox .title.red { color: red; }
+
+#inputbox .box p { padding: 0 5px; margin-bottom: 10px; }
+
+#inputbox table { margin-bottom: 15px; }
+
+#inputbox table th, #inputbox table td { padding: 2px 5px; white-space: nowrap; }
+
+#inputbox table td.label { text-align: center; vertical-align: middle; padding: 10px 5px; position: relative; }
+
+#inputbox table td.label::after { content: ""; display: block; position: absolute; top: 50%; height: 1px; width: 100%; background-color: #aaa; z-index: 0; }
+
+#inputbox table td.label span { background-color: white; padding: 0 5px; position: relative; z-index: 1; }
+
+#inputbox table input { height: 30px; min-width: 200px; padding: 3px; border: 1px solid #808080; border-radius: 3px; }
+
+#inputbox table input[readonly] { background-color: #eee; }
+
+#inputbox table input[type=file] { height: 32px; min-width: initial; width: 200px; }
+
+#inputbox table input.btn.small { font-size: 0.9em; height: 24px; min-width: initial; width: 50px; margin-left: -58px; }
+
+#inputbox table input.btn.small:hover { background-color: #ddd; }
+
+#inputbox table input.btn.small.hide { display: none; }
+
+#inputbox .buttons { padding: 10px 0; display: flex; align-items: center; justify-content: space-around; }
+
+#inputbox .buttons .hidden { display: none; }

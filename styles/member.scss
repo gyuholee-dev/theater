@@ -1,0 +1,129 @@
+// 변수 임포트
+@import "_variables.scss";
+
+section#member {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 600px;
+}
+
+#inputbox {
+    min-width: 340px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+    border-radius: 10px;
+    border: 1px solid rgba(black, 0.25);
+    box-shadow: 0 2px 16px rgba(black, 0.1);
+    background-color: white;
+    margin-top: 80px;
+
+    &.login {
+        margin-top: 80px;
+    }
+
+    .title {
+        font-size: 1.5em;
+        font-weight: bold;
+        margin-top: 10px;
+        margin-bottom: 15px;
+
+        &.red {
+            color: red;
+        }
+    }
+
+    .box {
+        p {
+            padding: 0 5px;
+            margin-bottom: 10px;
+        }
+    }
+
+    table {
+        margin-bottom: 15px;
+
+        th,
+        td {
+            padding: 2px 5px;
+            white-space: nowrap;
+        }
+
+        td.label {
+            text-align: center;
+            vertical-align: middle;
+            padding: 10px 5px;
+            position: relative;
+
+            &::after {
+                content: "";
+                display: block;
+                position: absolute;
+                top: 50%;
+                height: 1px;
+                width: 100%;
+                background-color: #aaa;
+                z-index: 0;
+            }
+
+            span {
+                background-color: white;
+                padding: 0 5px;
+                position: relative;
+                z-index: 1;
+            }
+        }
+
+        input {
+            height: 30px;
+            min-width: 200px;
+            padding: 3px;
+            border: 1px solid $color-grey;
+            border-radius: 3px;
+
+            &[readonly] {
+                background-color: $color-shine;
+            }
+
+            &[type=file] {
+                height: 32px;
+                min-width: initial;
+                width: 200px;
+            }
+
+            &.btn.small {
+                font-size: 0.9em;
+                height: 24px;
+                min-width: initial;
+                width: 50px;
+                margin-left: -58px;
+
+                &:hover {
+                    background-color: #ddd;
+                }
+
+                &.hide {
+                    display: none;
+                }
+            }
+        }
+    }
+
+    .buttons {
+        padding: 10px 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+
+        // >*:not(:last-child) {
+        //     margin-right: 10px;
+        // }
+
+        .hidden {
+            display: none;
+        }
+    }
+}

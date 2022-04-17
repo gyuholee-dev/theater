@@ -20,7 +20,7 @@ body {
     color: $color-black;
     font-size: 18px;
     word-break: break-all;
-    background-color: $color-background;
+    // background-color: $color-background;
 }
 
 header,
@@ -63,5 +63,14 @@ a {
         &.error {
             background-color: red;
         }
+    }
+}
+
+.btn {
+    font-size: 0.95em;
+    padding: 3px;
+    min-width: 80px;
+    &:hover {
+        cursor: pointer;
     }
 }

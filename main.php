@@ -22,7 +22,7 @@ switch ($PAGE) {
         break;
 
     case 'logout':
-        $content = PAGE.'logout.php';
+        logout();
         break;
 
     case 'register':

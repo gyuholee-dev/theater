@@ -39,7 +39,8 @@ $ACT = isset($_REQUEST['action'])?$_REQUEST['action']:'list';
 // 메시지
 if (isset($_SESSION['MSG'])) {
     $MSG = $_SESSION['MSG'];
-    unset($_SESSION['MSG']);
+    // js 출력시 프린트후 삭제
+    // unset($_SESSION['MSG']);
 } else {
     $MSG = [
         'info' => '',
