@@ -14,7 +14,7 @@ a { text-decoration: none; color: inherit; }
 
 #message .log { padding: 5px 10px; background-color: gray; color: white; font-size: 0.9em; text-align: center; }
 
-#message .log.info { background-color: gray; }
+#message .log.info { background-color: #5f5fff; }
 
 #message .log.success { background-color: green; }
 
