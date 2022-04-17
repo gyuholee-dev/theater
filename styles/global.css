@@ -7,3 +7,15 @@ body { font-family: "나눔스퀘어", "NanumSquare", "맑은 고딕", "Malgun G
 header, main, footer { display: flex; flex-direction: column; align-items: center; justify-content: start; width: 100%; }
 
 main { min-height: 600px; }
+
+a { text-decoration: none; color: inherit; }
+
+#message { width: 100%; }
+
+#message .log { padding: 5px 10px; background-color: gray; color: white; font-size: 0.9em; text-align: center; }
+
+#message .log.info { background-color: gray; }
+
+#message .log.success { background-color: green; }
+
+#message .log.error { background-color: red; }

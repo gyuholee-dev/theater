@@ -36,3 +36,32 @@ footer {
 main {
     min-height: 600px;
 }
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+// 글로벌 엘리먼트 ---------------------------------------------------------
+#message {
+    width: 100%;
+    .log {
+        padding: 5px 10px;
+        background-color: gray;
+        color: white;
+        font-size: 0.9em;
+        text-align: center;
+
+        &.info {
+            background-color: gray;
+        }
+
+        &.success {
+            background-color: green;
+        }
+
+        &.error {
+            background-color: red;
+        }
+    }
+}
