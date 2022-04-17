@@ -30,6 +30,7 @@ if (isset($_POST['confirm'])) {
 
   if ($_POST['confirm']=='입력') {
     foreach ($tables as $key => $tableName) {
+      $encrypt = ($tableName==$conf['table'])?$conf['columns']['pass'][0]: false;
       if ($clear) {
         clearData($tableName, false);
         // 어드민 데이터 존재시 재입력
@@ -37,7 +38,7 @@ if (isset($_POST['confirm'])) {
           insertData($tableName, $admin, true);
         }
       }
-      insertDataAll($tableName, true);
+      insertDataAll($tableName, true, $encrypt);
     }
   } elseif ($_POST['confirm']=='테스트') {
     foreach ($tables as $key => $tableName) {

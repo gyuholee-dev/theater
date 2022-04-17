@@ -1,8 +1,8 @@
 [
   {
-    "userid": "testuser",
-    "password": "1234",
-    "nickname": "TestUser",
+    "userid": "test",
+    "password": "1111",
+    "nickname": "테스트",
     "email": "test@test.com",
     "phone": "000-0000-0000",
     "points": 10000,

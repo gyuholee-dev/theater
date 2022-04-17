@@ -288,7 +288,7 @@ function deleteData($table, $key, $value, $log=false) {
 }
 
 // 데이터 입력
-function insertData($table, $data, $log=false) {
+function insertData($table, $data, $log=false, $encrypt=false) {
   global $DB;
   global $MSG;
 
@@ -298,7 +298,11 @@ function insertData($table, $data, $log=false) {
   $cnt = count($data);
   foreach ($data as $key => $value) {
     $sqlKey .= $key;
-    $sqlValue .= "'".addslashes($value)."'";
+    if ($encrypt == $key) {
+      $sqlValue .= "'".AES_ENCRYPT($value,$value)."'";
+    } else {
+      $sqlValue .= "'".addslashes($value)."'";
+    }
     if ($i < $cnt-1) {
       $sqlKey .= ', ';
       $sqlValue .= ', ';
@@ -320,10 +324,10 @@ function insertData($table, $data, $log=false) {
     return false;
   }
 }
-function insertDataAll($table, $log=false) {
+function insertDataAll($table, $log=false, $encrypt=false) {
   $tableData = openJson('data/'.$table.'.json');
   foreach ($tableData as $data) {
-    insertData($table, $data, $log);
+    insertData($table, $data, $log, $encrypt);
   }
 }
 
