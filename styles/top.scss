@@ -115,11 +115,12 @@ main {
                 left: 0;
                 .box_content{
                     margin: 0 auto;
-                    width: 35%;
+                    width: 37%;
                     height: 460px;
                     margin-top: 0px;
                     border: 1px solid #cacaca;
                     border-radius: 10px;
+                    margin-left: 0;
                     .conimg{
                         width: 300px;
                         height: 300px;
@@ -146,7 +147,7 @@ main {
 
                 .box_board{
                     margin: 0 auto;
-                    width: 30%;
+                    width: 32%;
                     height: 460px;
                     margin-top: 0px;
                     border: 1px solid #cacaca;
@@ -179,11 +180,12 @@ main {
 
                 .box_cinema{
                     margin: 0 auto;
-                    width: 26%;
+                    width: 28%;
                     height: 460px;
                     margin-top: 0px;
                     border: 1px solid #cacaca;
                     border-radius: 10px;
+                    margin-right: 0;
                     a>.conimg{
                         width: 50px;
                         height: 50px;
@@ -223,11 +225,12 @@ main {
                 height: 150px;
                 display: flex;
                 padding: 0px;
-                margin-top: 0px;
+                margin-top: -10px;
                 flex-direction: row;
+                margin-left: -10px;
                 .box_links{
                     margin: 0 auto;
-                    width: 40%;
+                    width: 37%;
                     height: 150px;
                     margin-top: 0px;
                     // border: 1px solid #cacaca;
@@ -250,38 +253,38 @@ main {
                     margin: 0 auto;
                     width: 30%;
                     height: 150px;
-                    margin-top: 0px;
+                    margin-top: -10px;
                     display: flex;
                     flex-direction: row;
-                    margin-left: -10px;
+                    margin-left: 20px;
                     left: 0;
                     // border: 1px solid;
                     .conimg{
                         width: 140px;
                         height: 140px;
-                        margin-left: 20px;
+                        margin-left: 25px;
                         >img{
                             margin-top: 5px;
-                            width: 90%;
-                            height: 90%;
+                            width: 100%;
+                            height: 100%;
                         }
                     }
 
                 }
                 .box_cafe{
                     margin: 0 auto;
-                    width: 26%;
+                    width: 28%;
                     height: 170px;
-                    margin-top: -10px;
+                    margin-top: -15px;
                     border: 1px solid #538dbd;
                     border-radius: 10px;
-                    margin-left: -10px;
+                    margin-right: -10px;
                     background-color: #538dbd;
                     .context{
                         width: 300px;
                         height: 40px;
                         margin-left: 10px;
-                        margin-top: 20px;
+                        margin-top: 10px;
                         text-align: left;
                         color: #ffffff;
                         img{

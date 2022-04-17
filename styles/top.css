@@ -37,7 +37,7 @@ main section .content3 { width: 100%; text-align: center; position: relative; }
 
 main section .content3 .conbox3 { width: 1200px; height: 500px; display: flex; padding: 0px; margin-top: 20px; left: 0; }
 
-main section .content3 .conbox3 .box_content { margin: 0 auto; width: 35%; height: 460px; margin-top: 0px; border: 1px solid #cacaca; border-radius: 10px; }
+main section .content3 .conbox3 .box_content { margin: 0 auto; width: 37%; height: 460px; margin-top: 0px; border: 1px solid #cacaca; border-radius: 10px; margin-left: 0; }
 
 main section .content3 .conbox3 .box_content .conimg { width: 300px; height: 300px; overflow: hidden; margin-left: 60px; }
 
@@ -47,7 +47,7 @@ main section .content3 .conbox3 .box_content .context { width: 390px; height: 30
 
 main section .content3 .conbox3 .box_content .context > p { font-size: 1.2em; padding-bottom: 10px; }
 
-main section .content3 .conbox3 .box_board { margin: 0 auto; width: 30%; height: 460px; margin-top: 0px; border: 1px solid #cacaca; border-radius: 10px; }
+main section .content3 .conbox3 .box_board { margin: 0 auto; width: 32%; height: 460px; margin-top: 0px; border: 1px solid #cacaca; border-radius: 10px; }
 
 main section .content3 .conbox3 .box_board .conimg { width: 50px; height: 50px; margin-left: 50%; transform: translateX(-20px); }
 
@@ -57,7 +57,7 @@ main section .content3 .conbox3 .box_board .context { width: 390px; height: 30px
 
 main section .content3 .conbox3 .box_board .context > p { text-align: center; transform: translateX(-25px); font-size: 1.2em; }
 
-main section .content3 .conbox3 .box_cinema { margin: 0 auto; width: 26%; height: 460px; margin-top: 0px; border: 1px solid #cacaca; border-radius: 10px; }
+main section .content3 .conbox3 .box_cinema { margin: 0 auto; width: 28%; height: 460px; margin-top: 0px; border: 1px solid #cacaca; border-radius: 10px; margin-right: 0; }
 
 main section .content3 .conbox3 .box_cinema a > .conimg { width: 50px; height: 50px; margin-left: 50%; transform: translateX(-20px); }
 
@@ -69,23 +69,23 @@ main section .content3 .conbox3 .box_cinema .context > p { text-align: center; t
 
 main section .content4 { width: 100%; text-align: center; padding-bottom: 20px; }
 
-main section .content4 .conbox4 { width: 1200px; height: 150px; display: flex; padding: 0px; margin-top: 0px; flex-direction: row; }
+main section .content4 .conbox4 { width: 1200px; height: 150px; display: flex; padding: 0px; margin-top: -10px; flex-direction: row; margin-left: -10px; }
 
-main section .content4 .conbox4 .box_links { margin: 0 auto; width: 40%; height: 150px; margin-top: 0px; display: flex; flex-direction: row; }
+main section .content4 .conbox4 .box_links { margin: 0 auto; width: 37%; height: 150px; margin-top: 0px; display: flex; flex-direction: row; }
 
 main section .content4 .conbox4 .box_links .conimg { width: 100px; height: 100px; margin-left: 10px; }
 
 main section .content4 .conbox4 .box_links .conimg > img { margin-top: 20px; width: 100%; height: 100%; }
 
-main section .content4 .conbox4 .box_links2 { margin: 0 auto; width: 30%; height: 150px; margin-top: 0px; display: flex; flex-direction: row; margin-left: -10px; left: 0; }
+main section .content4 .conbox4 .box_links2 { margin: 0 auto; width: 30%; height: 150px; margin-top: -10px; display: flex; flex-direction: row; margin-left: 20px; left: 0; }
 
-main section .content4 .conbox4 .box_links2 .conimg { width: 140px; height: 140px; margin-left: 20px; }
+main section .content4 .conbox4 .box_links2 .conimg { width: 140px; height: 140px; margin-left: 25px; }
 
-main section .content4 .conbox4 .box_links2 .conimg > img { margin-top: 5px; width: 90%; height: 90%; }
+main section .content4 .conbox4 .box_links2 .conimg > img { margin-top: 5px; width: 100%; height: 100%; }
 
-main section .content4 .conbox4 .box_cafe { margin: 0 auto; width: 26%; height: 170px; margin-top: -10px; border: 1px solid #538dbd; border-radius: 10px; margin-left: -10px; background-color: #538dbd; }
+main section .content4 .conbox4 .box_cafe { margin: 0 auto; width: 28%; height: 170px; margin-top: -15px; border: 1px solid #538dbd; border-radius: 10px; margin-right: -10px; background-color: #538dbd; }
 
-main section .content4 .conbox4 .box_cafe .context { width: 300px; height: 40px; margin-left: 10px; margin-top: 20px; text-align: left; color: #ffffff; }
+main section .content4 .conbox4 .box_cafe .context { width: 300px; height: 40px; margin-left: 10px; margin-top: 10px; text-align: left; color: #ffffff; }
 
 main section .content4 .conbox4 .box_cafe .context img { width: 30px; height: 30px; margin-top: -5px; position: absolute; }
 
