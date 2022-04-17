@@ -13,7 +13,7 @@ define('INC', 'includes/');
 define('CONF', 'configs/');
 define('DATA', 'data/');
 define('FILE', 'files/');
-define('PAGE', 'pages/');
+define('PAGE', './');
 define('IMG', 'images/');
 define('STL', 'styles/');
 define('SCT', 'scripts/');
