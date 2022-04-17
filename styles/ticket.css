@@ -32,6 +32,6 @@
 
 #result .payment .title { font-size: 1.5em; font-weight: bold; padding-bottom: 5px; margin-bottom: 10px; border-bottom: 1px solid grey; }
 
-#result .payment .price { font-size: 1.5em; font-weight: bold; align-self: end; justify-self: start; }
+#result .payment .price, #result .payment .points { font-size: 1.5em; font-weight: bold; align-self: end; justify-self: start; margin-bottom: 15px; }
 
 #result .payment input { cursor: pointer; margin-top: auto; align-self: center; font-size: 1.25em; font-weight: bold; width: fit-content; min-width: 120px; padding: 5px 10px; }

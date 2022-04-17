@@ -24,7 +24,7 @@ switch ($PAGE) {
         }
         break;
 
-    case 'pay':
+    /* case 'pay':
         $INFO['subtitle'] = '결제';
         if ($USER && $CART) {
             $content = PAGE.'pay.php';
@@ -32,7 +32,7 @@ switch ($PAGE) {
             pushLog('잘못된 접근입니다.');
             header('Location: main.php');
         }
-        break;
+        break; */
 
     case 'login':
         $INFO['subtitle'] = '로그인';

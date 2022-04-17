@@ -36,8 +36,9 @@ action 액션: list, item...
 */
 $PAGE = isset($_REQUEST['page'])?$_REQUEST['page']:'top';
 $ACT = isset($_REQUEST['action'])?$_REQUEST['action']:'list';
-$CART = isset($_REQUEST['cart'])?$_REQUEST['cart']:'';
-// TODO: 장바구니 세션 구현
+
+// 카트
+$CART = isset($_SESSION['CART'])?$_SESSION['CART']:'';
 
 // 메시지
 if (isset($_SESSION['MSG'])) {
