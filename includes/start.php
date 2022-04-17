@@ -21,19 +21,19 @@ if (basename($_SERVER['PHP_SELF']) !== 'main.php') {
 
 // 헤더
 if ($USER) {
-    $userLinks = <<<HTML
-        <li><a href="main.php?page=ticket">티켓</a></li>
+    $userLinks = "
+        <li><a href='main.php?page=ticket'>티켓</a></li>
         <pre> | </pre>
-        <li><a href="main.php?page=mypage">예매내역</a></li>
+        <li><a href='main.php?page=mypage'>예매내역</a></li>
         <pre> | </pre>
-        <li><a href="main.php?page=logout">로그아웃</a></li>
-    HTML;
+        <li><a href='main.php?page=logout'>로그아웃</a></li>
+    ";
 } else {
-    $userLinks = <<<HTML
-        <li><a href="main.php?page=register">회원가입</a></li>
+    $userLinks = "
+        <li><a href='main.php?page=register'>회원가입</a></li>
         <pre> | </pre>
-        <li><a href="main.php?page=login">로그인</a></li>
-    HTML;
+        <li><a href='main.php?page=login'>로그인</a></li>
+    ";
     $ticketLink = '';
 }
 $header_data = [
