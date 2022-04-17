@@ -22,10 +22,10 @@ $message = printLog();
 // 헤더
 if ($USER) {
   $userLink = '<a href="?page=mypage">예매내역</a>';
-  $loginLink = '<a href="?page=member&action=logout">로그아웃</a>';
+  $loginLink = '<a href="?page=logout">로그아웃</a>';
 } else {
-  $userLink = '<a href="?page=member&action=register">회원가입</a>';
-  $loginLink = '<a href="?page=member&action=login">로그인</a>';
+  $userLink = '<a href="?page=register">회원가입</a>';
+  $loginLink = '<a href="?page=login">로그인</a>';
 }
 $header_data = [
   'userLink' => $userLink,

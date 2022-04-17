@@ -13,6 +13,26 @@ switch ($PAGE) {
         include(PAGE.'movie.php');
         break;
 
+    case 'ticket':
+        include(PAGE.'ticket.php');
+        break;
+
+    case 'login':
+        include(PAGE.'login.php');
+        break;
+
+    case 'logout':
+        include(PAGE.'logout.php');
+        break;
+
+    case 'register':
+        include(PAGE.'register.php');
+        break;
+
+    case 'mypage':
+        include(PAGE.'mypage.php');
+        break;
+
     default:
         header('Location: main.php');
         break;
