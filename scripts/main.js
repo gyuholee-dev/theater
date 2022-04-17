@@ -7,7 +7,7 @@
 document.addEventListener("DOMContentLoaded", async function(){
     
     // 로그 출력
-    let msg = await xhr('getMsg');
+    const msg = await xhr('getMsg');
     let logs = '';
     for (type in msg) {
         let log = msg[type];
