@@ -20,7 +20,18 @@ $head = renderElement(TPL.'head.html', $head_data);
 $message = printLog();
 
 // 헤더
-$header = file_get_contents('templates/header.html');
+if ($USER) {
+  $userLink = '<a href="?page=mypage">예매내역</a>';
+  $loginLink = '<a href="?page=member&action=logout">로그아웃</a>';
+} else {
+  $userLink = '<a href="?page=member&action=register">회원가입</a>';
+  $loginLink = '<a href="?page=member&action=login">로그인</a>';
+}
+$header_data = [
+  'userLink' => $userLink,
+  'loginLink' => $loginLink,
+];
+$header = renderElement(TPL.'header.html', $header_data);
 
 // 푸터
 $footer = file_get_contents('templates/footer.html');
