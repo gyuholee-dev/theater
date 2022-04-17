@@ -75,7 +75,7 @@ if (isset($_POST['confirm'])) {
         $num = numStr($num, 7);
         $ticketNum = substr($num, 0, 4).'-'.substr($num, 4, 3);
         $ticketNum = $scrNum.'-'.$dayNum.'-'.$ticketNum;
-        $price = $scrnData['price_'.substr($seatnum, 0, 1)];
+        $price = $prices[substr($seatnum, 0, 1)];
 
         // 티켓 등록
         $sql = "INSERT INTO theater_ticket
