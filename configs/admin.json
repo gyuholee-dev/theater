@@ -17,6 +17,10 @@
             "email",
             ""
         ],
+        "cash": [
+            "points",
+            1000000
+        ],
         "perm": [
             "groups",
             "admin"
