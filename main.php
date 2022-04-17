@@ -6,34 +6,44 @@ require_once 'includes/start.php';
 // 페이지 인클루드 및 이동
 switch ($PAGE) {
     case 'top':
-        include(PAGE.'top.php');
+        $content = PAGE.'top.php';
         break;
 
     case 'movie':
-        include(PAGE.'movie.php');
+        $content = PAGE.'movie.php';
         break;
 
     case 'ticket':
-        include(PAGE.'ticket.php');
+        $content = PAGE.'ticket.php';
         break;
 
     case 'login':
-        include(PAGE.'login.php');
+        $content = PAGE.'login.php';
         break;
 
     case 'logout':
-        include(PAGE.'logout.php');
+        $content = PAGE.'logout.php';
         break;
 
     case 'register':
-        include(PAGE.'register.php');
+        $content = PAGE.'register.php';
         break;
 
     case 'mypage':
-        include(PAGE.'mypage.php');
+        $content = PAGE.'mypage.php';
         break;
 
     default:
         header('Location: main.php');
         break;
 }
+
+// 헤드
+$head_data = [
+    'title' => "$INFO[title] : $INFO[subtitle]",
+    'description' => "$INFO[description]",
+];
+$head = renderElement(TPL.'head.html', $head_data);
+
+// 인클루드
+include_once $content;
