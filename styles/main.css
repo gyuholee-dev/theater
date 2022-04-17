@@ -3,6 +3,8 @@ header { height: 100px; margin: auto; flex-direction: row; position: relative; d
 
 header .logo { width: 200px; height: 100px; position: relative; text-align: center; font-size: 30px; line-height: 100px; }
 
+header .logo a > img { width: 75%; height: auto; margin-top: -20px; }
+
 header a { text-decoration: none; }
 
 header menu { width: 100%; }
