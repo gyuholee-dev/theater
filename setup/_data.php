@@ -65,18 +65,18 @@ foreach ($tables as $tableName => $fileName) {
   $tableInputs .= "</td></tr>";
 }
 
-$content .= <<<HTML
-  <section class="setup">
-    <div class="title">데이터 입력</div>
-    <form method="post" action="">
+$content .= "
+  <section class='setup'>
+    <div class='title'>데이터 입력</div>
+    <form method='post' action=''>
       <table>
         $tableInputs
       </table>
-      <div class="buttons">
-        <label><input type="checkbox" name="clear" $checked>클리어</label>
-        <input class="btn" type="submit" name="confirm" value="입력">
-        <input class="btn" type="submit" name="confirm" value="테스트">
+      <div class='buttons'>
+        <label><input type='checkbox' name='clear' $checked>클리어</label>
+        <input class='btn' type='submit' name='confirm' value='입력'>
+        <input class='btn' type='submit' name='confirm' value='테스트'>
       </div>
     </form>
   </section>
-HTML;
+";

@@ -27,33 +27,33 @@ if ($_SERVER['HTTP_HOST'] != 'localhost' || $DBCONF['user'] != 'root') {
   $disabled = 'disabled';
 }
 
-$content .= <<<HTML
-  <section class="setup">
-    <div class="title">MariaDB 설정</div>
-    <form method="post" action="">
+$content .= "
+  <section class='setup'>
+    <div class='title'>MariaDB 설정</div>
+    <form method='post' action=''>
       <table>
         <tr>
           <td>호스트</td>
-          <td><input type="text" name="host" value="$DBCONF[host]" readonly required></td>
+          <td><input type='text' name='host' value='$DBCONF[host]' readonly required></td>
         </tr>
         <tr>
           <td>사용자</td>
-          <td><input type="text" name="user" value="$DBCONF[user]" required></td>
+          <td><input type='text' name='user' value='$DBCONF[user]' required></td>
         </tr>
         <tr>
           <td>비밀번호</td>
-          <td><input type="password" name="pass" value="$DBCONF[pass]"></td>
+          <td><input type='password' name='pass' value='$DBCONF[pass]'></td>
         </tr>
         <tr>
           <td>DB 이름</td>
-          <td><input type="text" name="database" value="$DBCONF[database]" required $readonly></td>
+          <td><input type='text' name='database' value='$DBCONF[database]' required $readonly></td>
         </tr>
       </table>
-      <div class="buttons">
-        <input class="btn" type="submit" name="confirm" value="DB생성" $disabled>
-        <input class="btn" type="submit" name="confirm" value="설정저장">
-        <input class="btn" type="submit" name="confirm" value="테스트">
+      <div class='buttons'>
+        <input class='btn' type='submit' name='confirm' value='DB생성' $disabled>
+        <input class='btn' type='submit' name='confirm' value='설정저장'>
+        <input class='btn' type='submit' name='confirm' value='테스트'>
       </div>
     </form>
   </section>
-HTML;
+";

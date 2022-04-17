@@ -25,38 +25,38 @@ if (isset($_POST['confirm'])) {
   }
 }
 
-$content .= <<<HTML
-  <section class="setup login">
-    <div class="title">MariaDB 로그인</div>
-    <form method="post" action="">
+$content .= "
+  <section class='setup login'>
+    <div class='title'>MariaDB 로그인</div>
+    <form method='post' action=''>
       <table>
         <tr>
           <td>사용자</td>
-          <td><input type="text" name="user" value="$DBCONF[user]" required></td>
+          <td><input type='text' name='user' value='$DBCONF[user]' required></td>
         </tr>
         <tr>
           <td>비밀번호</td>
-          <td><input type="password" name="pass" value="$DBCONF[pass]"></td>
+          <td><input type='password' name='pass' value='$DBCONF[pass]'></td>
         </tr>
       </table>
-      <div class="buttons">
-        <input class="btn" type="submit" name="confirm" value="로그인">
-        <input class="btn" type="submit" value="취소">
+      <div class='buttons'>
+        <input class='btn' type='submit' name='confirm' value='로그인'>
+        <input class='btn' type='submit' value='취소'>
       </div>
     </form>
   </section>
-HTML;
+";
 
-$content .= ($_SERVER['HTTP_HOST']!='localhost')?<<<HTML
-  <section class="comment">
-    <div class="title red">주의!</div>
-    <div class="box">
+$content .= ($_SERVER['HTTP_HOST']!='localhost')?"
+  <section class='comment'>
+    <div class='title red'>주의!</div>
+    <div class='box'>
       <p><b>
         cafe24 서버일 경우<br>
         configs 디렉토리 권한 755 필요.<br>
         ssh 또는 파일질라에서 설정해 주세요.
       </b></p>
-      <img src="setup/permission.png">
+      <img src='setup/permission.png'>
     </div>
   </section>
-HTML:'';
+":'';

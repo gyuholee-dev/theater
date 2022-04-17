@@ -53,25 +53,25 @@ if ($USER && $ACT != 'login') {
   $active = ['db'=>'','table'=>'','admin'=>'','data'=>''];
   $active[$ACT] = 'active';
   $disabled = checkDB($DBCONF) ? '' : 'disabled';
-  $nav = <<<HTML
+  $nav = "
     <ul>
-      <li class="$active[db]">
-        <a href="setup.php?action=db">MariaDB 설정</a>
+      <li class='$active[db]'>
+        <a href='setup.php?action=db'>MariaDB 설정</a>
       </li>
-      <li class="$active[table] $disabled">
-        <a href="setup.php?action=table">테이블 생성</a>
+      <li class='$active[table] $disabled'>
+        <a href='setup.php?action=table'>테이블 생성</a>
       </li>
-      <li class="$active[admin] $disabled">
-        <a href="setup.php?action=admin">관리자 계정</a>
+      <li class='$active[admin] $disabled'>
+        <a href='setup.php?action=admin'>관리자 계정</a>
       </li>
-      <li class="$active[data] $disabled">
-        <a href="setup.php?action=data">데이터 입력</a>
+      <li class='$active[data] $disabled'>
+        <a href='setup.php?action=data'>데이터 입력</a>
       </li>
-      <li class="$disabled">
-        <a href="setup.php?action=main">사이트 메인</a>
+      <li class='$disabled'>
+        <a href='setup.php?action=main'>사이트 메인</a>
       </li>
     </ul>
-  HTML;
+  ";
 }
 
 //------------------------ 랜더링 ------------------------
