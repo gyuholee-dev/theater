@@ -17,6 +17,7 @@ function pushLog($log, $class='info')
     global $MSG;
     $MSG[$class] .= ($MSG[$class] != '')?' | ':'';
     $MSG[$class] .= $log;
+    $_SESSION['MSG'] = $MSG;
     return true;
 }
 
@@ -28,6 +29,7 @@ function printLog()
     foreach ($MSG as $type => $log) {
         $html .= $log?"<div class='log $type'>$log</div>":'';
     }
+    unset($_SESSION['MSG']);
     return "<div id='message'>$html</div>";
 }
 

@@ -14,7 +14,12 @@ switch ($PAGE) {
         break;
 
     case 'ticket':
-        $content = PAGE.'ticket.php';
+        if ($USER) {
+            $content = PAGE.'ticket.php';
+        } else {
+            pushLog('로그인 후 이용해주세요.');
+            $content = PAGE.'login.php';
+        }
         break;
 
     case 'login':

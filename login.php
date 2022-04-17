@@ -17,15 +17,18 @@ if (isset($_POST['confirm'])) {
   
         if (isset($userData['password']) && $userData['password'] == AES_ENCRYPT($password, $password)) {
             setUserData($userData);
-            header('Location: main.php');
+            unset($_SESSION['MSG']);
+            if ($PAGE=='login') {
+                header('Location: main.php');
+            } else {
+                header('Location: main.php?page='.$PAGE);
+            }
         } else {
             pushLog('로그인 실패: 비밀번호를 확인해 주세요', 'error');
-            $_SESSION['MSG'] = $MSG;
             header('Location: main.php?page=login');
         }
     } catch (Exception $e) {
         pushLog('로그인 오류: '.$e->getMessage(), 'error');
-        $_SESSION['MSG'] = $MSG;
         header('Location: main.php?page=login');
     }
 }
