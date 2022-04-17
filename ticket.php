@@ -2,7 +2,6 @@
 require_once 'includes/init.php';
 require_once 'includes/start.php';
 
-
 // 스크린 데이터 조회
 $sql = "SELECT * FROM theater_screen 
         WHERE scrnday = '2022-04-23' AND scrnnum = '01' ";

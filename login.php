@@ -2,8 +2,6 @@
 require_once 'includes/init.php';
 require_once 'includes/start.php';
 
-$INFO['subtitle'] = '로그인';
-
 // 로그인 처리
 if (isset($_POST['confirm'])) {
     $userid = $_POST['userid'];

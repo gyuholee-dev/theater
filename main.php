@@ -10,10 +10,12 @@ switch ($PAGE) {
         break;
 
     case 'movie':
+        $INFO['subtitle'] = '영화';
         $content = PAGE.'movie.php';
         break;
 
     case 'ticket':
+        $INFO['subtitle'] = '좌석선택';
         if ($USER) {
             $content = PAGE.'ticket.php';
         } else {
@@ -22,7 +24,18 @@ switch ($PAGE) {
         }
         break;
 
+    case 'pay':
+        $INFO['subtitle'] = '결제';
+        if ($USER && $CART) {
+            $content = PAGE.'pay.php';
+        } else {
+            pushLog('잘못된 접근입니다.');
+            header('Location: main.php');
+        }
+        break;
+
     case 'login':
+        $INFO['subtitle'] = '로그인';
         $content = PAGE.'login.php';
         break;
 
@@ -31,10 +44,12 @@ switch ($PAGE) {
         break;
 
     case 'register':
+        $INFO['subtitle'] = '회원가입';
         $content = PAGE.'register.php';
         break;
 
     case 'mypage':
+        $INFO['subtitle'] = '예매내역';
         $content = PAGE.'mypage.php';
         break;
 
