@@ -1,4 +1,4 @@
-#screen { width: 100%; }
+#screen { width: 100%; margin-bottom: 15px; }
 
 #screen .title { font-size: 1.5em; font-weight: bold; margin-top: 15px; margin-bottom: 15px; }
 
@@ -6,17 +6,19 @@
 
 #screen .content .screen { width: 400px; align-self: center; text-align: center; padding-bottom: 5px; border-bottom: 4px solid #ddd; margin-bottom: 15px; }
 
-#screen .content .select { display: flex; justify-content: center; }
+#screen .content .seats { margin-bottom: 15px; }
 
-#screen .content .select .check { cursor: pointer; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; margin: 5px; border: 1px solid grey; border-radius: 5px; text-transform: uppercase; }
+#screen .content .seats .select { display: flex; justify-content: center; }
 
-#screen .content .select .check.disabled { background-color: grey; }
+#screen .content .seats .select .check { cursor: pointer; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; margin: 5px; border: 1px solid grey; border-radius: 5px; text-transform: uppercase; }
 
-#screen .content .select .check.selected { background-color: #00bcd4; }
+#screen .content .seats .select .check.disabled { background-color: grey; }
 
-#screen .content .select .check:nth-child(5) { margin-right: 15px; }
+#screen .content .seats .select .check.selected { background-color: #00bcd4; }
 
-#screen .content .select .check:nth-child(6) { margin-left: 15px; }
+#screen .content .seats .select .check:nth-child(5) { margin-right: 15px; }
+
+#screen .content .seats .select .check:nth-child(6) { margin-left: 15px; }
 
 #result { display: flex; padding: 15px; }
 

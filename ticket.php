@@ -3,11 +3,6 @@ require_once 'includes/init.php';
 require_once 'includes/start.php';
 
 
-// submit 처리
-if (isset($_POST['confirm'])) {
-
-}
-
 // 스크린 데이터 조회
 $sql = "SELECT * FROM theater_screen 
         WHERE scrnday = '2022-04-23' AND scrnnum = '01' ";
@@ -47,9 +42,16 @@ $movieInfo = $movieData['firmtitle'].' | '.$movieData['summary'];
                 $button.addClass('selected');
                 checked.push(button.value);
             }
-
+            var price = checked.length*2000;
+            if (price>0) {
+                document.payment.confirm.disabled = false;
+            } else {
+                document.payment.confirm.disabled = 'disabled';
+            }
+            document.payment.cart.value = checked.join(',');
+            document.payment.price.value = price;
             $('#result .seats')[0].innerText = checked.join(', ');
-            $('#result .price')[0].innerHTML = checked.length*2000 + '원';
+            $('#result .price')[0].innerHTML = price + '원';
         }
     </script>
 </head>
@@ -78,7 +80,6 @@ $movieInfo = $movieData['firmtitle'].' | '.$movieData['summary'];
                         }
                         echo '</div>';
                     }
-                    echo '';
                 ?>
                 </div>
             </div>
@@ -95,12 +96,12 @@ $movieInfo = $movieData['firmtitle'].' | '.$movieData['summary'];
                     <span class="seats"></span>
                 </div>
             </div>
-            <form class="payment" name="payment" method="post">
+            <form class="payment" name="payment" method="post" action="main.php?page=pay">
                 <div class="title">결제금액</div>
                 <div class="price">0원</div>
                 <input type="hidden" name="cart" value="">
-                <input type="submit" name="confirm" value="결제">
-                <!-- <input type="button" value="돌아가기"> -->
+                <input type="hidden" name="price" value="">
+                <input type="submit" name="confirm" value="결제" disabled="disabled">
             </form>
         </section>
     </main>
