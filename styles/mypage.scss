@@ -1,0 +1,77 @@
+#purchased {
+    display: flex;
+    padding: 15px;
+    flex-direction: column;
+    line-height: 1.6;
+    >.title {
+        font-size: 1.5em;
+        font-weight: bold;
+        margin-top: 15px;
+        margin-bottom: 15px;
+    }
+    .content {
+        padding: 0 25px;
+        display: flex;
+        flex-direction: column;
+        .ticket {
+            height: 140px;
+            display: flex;
+            border: 1px solid grey;
+            border-radius: 15px;
+            padding: 10px;
+            margin-bottom: 15px;
+            .topimg {
+                width: 84px;
+                margin-right: 25px;
+                overflow: hidden;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 8px;
+                img {
+                    // width: 100%;
+                    height: 100%;
+                }
+            }
+            .info {
+                display: flex;
+                flex-direction: column;
+                flex-grow: 1;
+                div {
+                    display: flex;
+                }
+                .title {
+                    font-weight: bold;
+                    font-size: 1.25em;
+                    margin-top: 5px;
+                    margin-bottom: 5px;
+                    border-bottom: 1px solid grey;
+
+                }
+            }
+            .payment {
+                display: flex;
+                flex-direction: column;
+                width: 160px;
+                word-break: keep-all;
+                margin-left: 25px;
+                /* .date {
+                    text-align: right;
+                } */
+                .points {
+                    text-align: center;
+                }
+                input {
+                    cursor: pointer;
+                    margin-top: auto;
+                    align-self: center;
+                    font-size: 1em;
+                    font-weight: bold;
+                    width: fit-content;
+                    min-width: 120px;
+                    padding: 5px 10px;
+                }
+            }
+        }
+    }
+}
