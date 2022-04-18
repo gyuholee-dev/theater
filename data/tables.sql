@@ -7,16 +7,13 @@ board
 */
 
 /* screen 상영관
--- 프라이머리키 세개
 -- 상영일정에 따라 계속 생성
 -- 시작시간 및 종료시간 체크해서 티켓 처리
 -- 좌석 필드는 총 50개
-scrnday 상영일: 2022-04-15
-scrnnum 상영관번호: 01
-scrncnt 상영회차: 01
+scrncode 스크린코드 0000-0000-0000 [연도]-[월일]-[상영관+회차]
+firmcode 영화코드
 scrnstart 상영시작시간 12:15
 scrnend 상영종료시간 14:30
-firmcode 영화코드
 
 price_a A좌석가격 (기본값 2000원)
 price_b B좌석가격 (기본값 2000원)
@@ -30,12 +27,10 @@ seat_a02 A02좌석
 seat_e10 E10좌석
 */
 CREATE TABLE theater_screen (
-    scrnday CHAR(10) NOT NULL,
-    scrnnum CHAR(2) NOT NULL,
-    scrncnt CHAR(2) NOT NULL,
+    scrncode CHAR(14) NOT NULL,
+    firmcode CHAR(10),
     scrnstart CHAR(5),
     scrnend CHAR(5),
-    firmcode CHAR(10),
     
     price_a INT DEFAULT 2000,
     price_b INT DEFAULT 2000,
@@ -94,51 +89,49 @@ CREATE TABLE theater_screen (
     seat_e09 CHAR(18),
     seat_e10 CHAR(18),
 
-    PRIMARY KEY (scrnday, scrnnum, scrncnt)
+    PRIMARY KEY (scrncode)
 );
 INSERT INTO theater_screen
-(scrnday, scrnnum, scrncnt, scrnstart, scrnend, firmcode)
+(scrncode, firmcode, scrnstart, scrnend)
 VALUES
-('2022-04-23', '01', '01', '12:15', '14:30', '20192206D');
-UPDATE theater_screen 
-SET seat_b05 = '0101-0423-1268-231'
-WHERE scrnday = '2022-04-23' AND scrnnum = '01' AND scrncnt = '01';
-
+('2022-0423-0101', '20192206D', '12:15', '14:30');
+-- UPDATE theater_screen 
+-- SET seat_b05 = '2022-0423-1268-231'
+-- WHERE scrncode = '2022-0423-0101';
 
 
 /* ticket 티켓
--- 상영관 조회시 상영관번호, 좌석번호=예매번호
-ticketnum 예매번호 0000-0000-0000-000 [상영관번호+상영회차]-[날짜]-[인덱스(4)-(3)]
-scrnnum 상영관번호
-scrncnt 상영회차
+ticketnum 예매번호 0000-0000-0000-000 [연도]-[날짜]-[순번(4)-(3)]
 firmcode 영화코드
+scrncode 스크린코드
 seatnum 좌석번호
 userid 회원아이디
+paydate 결제일자: 유닉스타임
 payment 지불금액 2000
 */
 CREATE TABLE theater_ticket (
     ticketnum CHAR(18),
-    scrnnum CHAR(2),
-    scrncnt CHAR(2),
     firmcode CHAR(10),
+    scrncode CHAR(14),
     seatnum CHAR(3),
     userid CHAR(20),
+    paydate INT,
     payment INT,
     PRIMARY KEY (ticketnum)
 );
 INSERT INTO theater_ticket
-(ticketnum, scrnnum, scrncnt, firmcode, seatnum, userid, payment)
+(ticketnum, firmcode, scrncode, seatnum, userid, paydate, payment)
 VALUES
-('0101-0423-1268-231', '01', '01', '20192206D', 'b05', 'testuser', 2000);
+('2022-0423-1268-231', '20192206D', '2022-0423-0101', 'b05', 'test', 1650255881, 2000);
 
 /* member 회원
 userid 회원아이디
 password 비밀번호
-username 회원이름
+nickname 회원이름
 email 이메일
 phone 휴대폰번호 010-1234-5678
 
-points 포인트
+points 포인트 기본값 10만
 groups 권한 그룹: admin, user
 
 -- 패스워드 암호화 참고:
@@ -149,17 +142,17 @@ groups 권한 그룹: admin, user
 CREATE TABLE theater_member (
     userid CHAR(20) NOT NULL,
     password BLOB,
-    username VARCHAR(20),
+    nickname VARCHAR(20),
     email CHAR(30),
     phone CHAR(13),
-    points INT DEFAULT 10000,
+    points INT DEFAULT 100000,
     groups CHAR(10) DEFAULT 'user',
     PRIMARY KEY (userid)
 );
 INSERT INTO theater_member
-(userid, password, username, email, phone, points, groups)
+(userid, password, nickname, email, phone, points, groups)
 VALUES
-('testuser', '1234', 'TestUser', 'test@test.com', '000-0000-0000', 10000, 'user');
+('test', '1234', '테스트', 'test@test.com', '000-0000-0000', 100000, 'user');
 
 /* movie 영화
 firmcode 영화코드 (https://www.kobis.or.kr/kobis/business/mast/mvie/searchUserMovCdList.do)
@@ -225,8 +218,9 @@ VALUES
 postnum 게시물번호: 자동증가
 category 게시판 카테고리: notice, qna, review, etc...
 title 게시물제목: 최대 80자
-regdate 게시물작성일: Y-m-d H:i:s (19자)
-writer 게시물작성자: = member userid
+regdate 게시물작성일: 유닉스타임
+userid 게시물작성자: = member userid
+nickname 게시물작성자: = member nickname
 
 content 게시물내용: 최대 1000자
 
@@ -237,14 +231,15 @@ CREATE TABLE theater_board (
     postnum INT AUTO_INCREMENT,
     category CHAR(10),
     title VARCHAR(80),
-    regdate CHAR(19),
-    writer CHAR(20),
+    regdate INT,
+    userid CHAR(20),
+    nickname VARCHAR(20),
     content TEXT,
     secret BOOLEAN DEFAULT 0,
     hit INT DEFAULT 0,
     PRIMARY KEY (postnum)
 );
 INSERT INTO theater_board
-(category, title, regdate, writer, content)
+(category, title, regdate, userid, nickname, content)
 VALUES
-('notice', '테스트 타이틀', '2022-04-14 12:00:00', 'testuser', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque fuga commodi obcaecati delectus quaerat earum ad odit ducimus placeat doloremque corporis modi quia, harum cum exercitationem, veritatis velit aliquid nam.');
+('notice', '테스트 타이틀', 1650253112, 'test', '테스트', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque fuga commodi obcaecati delectus quaerat earum ad odit ducimus placeat doloremque corporis modi quia, harum cum exercitationem, veritatis velit aliquid nam.');

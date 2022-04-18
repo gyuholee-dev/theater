@@ -1,11 +1,11 @@
 [
   {
-    "ticketnum": "0101-0423-1268-231",
-    "scrnnum": "01",
-    "scrncnt": "01",
+    "ticketnum": "2022-0423-1268-231",
     "firmcode": "20192206D",
+    "scrncode": "2022-0423-0101",
     "seatnum": "b05",
     "userid": "test",
+    "paydate": 1650255881,
     "payment": 2000
   }
 ]
