@@ -3,7 +3,7 @@
     "columns": {
         "id": [
             "userid",
-            "admin"
+            "ksonyong"
         ],
         "pass": [
             "password",
