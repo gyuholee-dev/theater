@@ -3,7 +3,7 @@
 require_once 'includes/init.php';
 require_once 'includes/start.php';
 
-// 페이지 인클루드 및 이동
+// 사이트 로직
 switch ($PAGE) {
     case 'top':
         $content = PAGE.'top.php';
@@ -14,52 +14,47 @@ switch ($PAGE) {
         $content = PAGE.'movie.php';
         break;
 
-    case 'ticket':
-        $INFO['subtitle'] = '좌석선택';
-        if ($USER) {
-            $content = PAGE.'ticket.php';
-        } else {
-            pushLog('로그인 후 이용해주세요.');
-            $content = PAGE.'login.php';
-        }
-        break;
-
-    /* case 'pay':
-        $INFO['subtitle'] = '결제';
-        if ($USER && $CART) {
-            $content = PAGE.'pay.php';
-        } else {
-            pushLog('잘못된 접근입니다.');
-            header('Location: main.php');
-        }
-        break; */
-
-    case 'login':
-        $INFO['subtitle'] = '로그인';
-        $content = PAGE.'login.php';
-        break;
-
-    case 'logout':
-        logout();
-        break;
-
-    case 'register':
-        $INFO['subtitle'] = '회원가입';
-        $content = PAGE.'register.php';
-        break;
-
-    case 'mypage':
-        if ($USER) {
-            $INFO['subtitle'] = '예매내역';
-            $content = PAGE.'mypage.php';
-        } else {
-            header('Location: main.php');
-        }
-        break;
-
     default:
-        header('Location: main.php');
-        break;
+    if ($USER) {
+        switch ($PAGE) {
+            case 'ticket':
+                $INFO['subtitle'] = '좌석선택';
+                $content = PAGE.'ticket.php';
+                break;
+            
+            case 'mypage':
+                $INFO['subtitle'] = '예매내역';
+                $content = PAGE.'mypage.php';
+                break;
+    
+            case 'logout':
+                logout();
+                break;
+    
+            default:
+                header('Location: main.php?page=mypage');
+            
+        }
+    } else {
+        switch ($PAGE) {
+            case 'login':
+                $INFO['subtitle'] = '로그인';
+                $content = PAGE.'login.php';
+                break;
+    
+            case 'register':
+                $INFO['subtitle'] = '회원가입';
+                $content = PAGE.'register.php';
+                break;
+    
+            default:
+                $INFO['subtitle'] = '로그인';
+                pushLog('로그인 후 이용해주세요.');
+                $content = PAGE.'login.php';
+                break;
+        }
+        
+    }
 }
 
 // 헤드
