@@ -21,10 +21,11 @@ if (basename($_SERVER['PHP_SELF']) !== 'main.php') {
 
 // 헤더
 if ($USER) {
+    // 티켓은 일단 임시링크
     $userLinks = "
         <li><a href='main.php?page=ticket'>티켓</a></li>
         <pre> | </pre>
-        <li><a href='main.php?page=mypage'>예매내역</a></li>
+        <li><a href='main.php?page=mypage'>마이페이지</a></li>
         <pre> | </pre>
         <li><a href='main.php?page=logout'>로그아웃</a></li>
     ";
