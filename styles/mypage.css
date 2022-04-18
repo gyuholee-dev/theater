@@ -1,0 +1,23 @@
+#purchased { display: flex; padding: 15px; flex-direction: column; line-height: 1.6; }
+
+#purchased > .title { font-size: 1.5em; font-weight: bold; margin-top: 15px; margin-bottom: 15px; }
+
+#purchased .content { padding: 0 25px; display: flex; flex-direction: column; }
+
+#purchased .content .ticket { height: 140px; display: flex; border: 1px solid grey; border-radius: 15px; padding: 10px; margin-bottom: 15px; }
+
+#purchased .content .ticket .topimg { width: 84px; margin-right: 25px; overflow: hidden; display: flex; align-items: center; justify-content: center; border-radius: 8px; }
+
+#purchased .content .ticket .topimg img { height: 100%; }
+
+#purchased .content .ticket .info { display: flex; flex-direction: column; flex-grow: 1; }
+
+#purchased .content .ticket .info div { display: flex; }
+
+#purchased .content .ticket .info .title { font-weight: bold; font-size: 1.25em; margin-top: 5px; margin-bottom: 5px; border-bottom: 1px solid grey; }
+
+#purchased .content .ticket .payment { display: flex; flex-direction: column; width: 160px; word-break: keep-all; margin-left: 25px; /* .date { text-align: right; } */ }
+
+#purchased .content .ticket .payment .points { text-align: center; }
+
+#purchased .content .ticket .payment input { cursor: pointer; margin-top: auto; align-self: center; font-size: 1em; font-weight: bold; width: fit-content; min-width: 120px; padding: 5px 10px; }

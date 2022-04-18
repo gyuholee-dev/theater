@@ -4,7 +4,7 @@ CREATE TABLE theater_member (
     nickname VARCHAR(20),
     email CHAR(30),
     phone CHAR(13),
-    points INT DEFAULT 10000,
+    points INT DEFAULT 100000,
     groups CHAR(10) DEFAULT 'user',
     PRIMARY KEY (userid)
 );

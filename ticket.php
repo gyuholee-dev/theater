@@ -3,27 +3,22 @@ require_once 'includes/init.php';
 require_once 'includes/start.php';
 
 // 임시 변수
-$scrnday = '2022-04-23';
-$scrnnum = '01';
-$scrncnt = '01';
+$scrncode = '2022-0423-0101';
 $firmcode = '20192206D';
 
 // 리퀘스트
-$scrnday = (isset($_REQUEST['scrnday']))?$_REQUEST['scrnday']:$scrnday;
-$scrnnum = (isset($_REQUEST['scrnnum']))?$_REQUEST['scrnnum']:$scrnnum;
-$scrncnt = (isset($_REQUEST['scrncnt']))?$_REQUEST['scrncnt']:$scrncnt;
+$scrncode = (isset($_REQUEST['scrncode']))?$_REQUEST['scrncode']:$scrncode;
 $firmcode = (isset($_REQUEST['firmcode']))?$_REQUEST['firmcode']:$firmcode;
 
 // 스크린 데이터 조회
 $sql = "SELECT * FROM theater_screen 
-        WHERE 
-        scrnday = '$scrnday' AND 
-        scrnnum = '$scrnnum' AND 
-        scrncnt = '$scrncnt' ";
+        WHERE scrncode = '$scrncode' ";
 $res = mysqli_query($DB, $sql);
 $scrnData = mysqli_fetch_assoc($res);
-$scrnInfo = $scrnData['scrnday'].', '.
-    $scrnData['scrnnum'].'관 '.$scrnData['scrncnt'].'회차, '.
+
+$codes = decode_scrncode($scrncode);
+$scrnInfo = $codes['scrndate'].', '.
+    $codes['scrnnum'].'관 '.$codes['scrncnt'].'회차, '.
     $scrnData['scrnstart'].' ~ '.$scrnData['scrnend'];
 $prices = [
     'a' => $scrnData['price_a'],
@@ -52,36 +47,23 @@ $myPoints = $userData['points'];
 // 서브밋 처리
 if (isset($_POST['confirm'])) {
     $cart = json_decode($_POST['cart']);
-    $scrnday = $_POST['scrnday'];
-    $scrnnum = $_POST['scrnnum'];
-    $scrncnt = $_POST['scrncnt'];
+    $scrncode = $_POST['scrncode'];
     $firmcode = $_POST['firmcode'];
-
-    $scrNum = $scrnnum.$scrncnt;
-    $dayNum = date('md',strtotime($scrnday));
     
-    // 넘버 기본값
-    $num = 1023011;
-    // 티켓 레코드에서 마지막 데이터의 넘버를 가져온다
-    $sql = "SELECT MAX(ticketnum) FROM theater_ticket ";
-    $lastTicketNum = mysqli_fetch_row(mysqli_query($DB, $sql))[0];
-    if ($lastTicketNum) {
-        $nums = explode('-', $lastTicketNum);
-        $num = (int)($nums[2].$nums[3]);
-    }
-
+    $num = 0;
     foreach ($cart as $seatnum) {
-        $num += rand(128, 1024);
-        $num = numStr($num, 7);
-        $ticketNum = substr($num, 0, 4).'-'.substr($num, 4, 3);
-        $ticketNum = $scrNum.'-'.$dayNum.'-'.$ticketNum;
+        $ticketNum = encode_ticketnum($scrncode, $num);
+        $nums = explode('-', $ticketNum);
+        $num = (int)($nums[2].$nums[3]);
+
+        $paydate = time();
         $price = $prices[substr($seatnum, 0, 1)];
 
         // 티켓 등록
         $sql = "INSERT INTO theater_ticket
-        (ticketnum, scrnnum, scrncnt, firmcode, seatnum, userid, payment)
+        (ticketnum, firmcode, scrncode, seatnum, userid, paydate, payment)
         VALUES
-        ('$ticketNum', '$scrnnum', '$scrncnt', '$firmcode', '$seatnum', '$userId', $price)";
+        ('$ticketNum', '$firmcode', '$scrncode', '$seatnum', '$userId', '$paydate',  $price)";
         mysqli_query($DB, $sql);
 
         // 포인트 차감
@@ -93,10 +75,7 @@ if (isset($_POST['confirm'])) {
         // 좌석 등록
         $sql = "UPDATE theater_screen 
                 SET seat_$seatnum = '$ticketNum' 
-                WHERE 
-                scrnday = '$scrnday' AND 
-                scrnnum = '$scrnnum' AND 
-                scrncnt = '$scrncnt' ";
+                WHERE scrncode = '$scrncode' ";
         mysqli_query($DB, $sql);
 
     }
@@ -202,9 +181,7 @@ if (isset($_POST['confirm'])) {
                 <div class="title">결제금액</div>
                 <div class="price">0원</div>
                 <input type="hidden" name="cart" value="">
-                <input type="hidden" name="scrnday" value="<?=$scrnData['scrnday']?>">
-                <input type="hidden" name="scrnnum" value="<?=$scrnData['scrnnum']?>">
-                <input type="hidden" name="scrncnt" value="<?=$scrnData['scrncnt']?>">
+                <input type="hidden" name="scrncode" value="<?=$scrnData['scrncode']?>">
                 <input type="hidden" name="firmcode" value="<?=$scrnData['firmcode']?>">
                 <input type="hidden" name="confirm" value="결제">
                 <input type="button" name="check" value="결제" disabled="disabled" onclick="checkPay()">

@@ -1,10 +1,8 @@
 CREATE TABLE theater_screen (
-    scrnday CHAR(10) NOT NULL,
-    scrnnum CHAR(2) NOT NULL,
-    scrncnt CHAR(2) NOT NULL,
+    scrncode CHAR(14) NOT NULL,
+    firmcode CHAR(10),
     scrnstart CHAR(5),
     scrnend CHAR(5),
-    firmcode CHAR(10),
     
     price_a INT DEFAULT 2000,
     price_b INT DEFAULT 2000,
@@ -63,5 +61,5 @@ CREATE TABLE theater_screen (
     seat_e09 CHAR(18),
     seat_e10 CHAR(18),
 
-    PRIMARY KEY (scrnday, scrnnum, scrncnt)
+    PRIMARY KEY (scrncode)
 );
