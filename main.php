@@ -49,8 +49,12 @@ switch ($PAGE) {
         break;
 
     case 'mypage':
-        $INFO['subtitle'] = '예매내역';
-        $content = PAGE.'mypage.php';
+        if ($USER) {
+            $INFO['subtitle'] = '예매내역';
+            $content = PAGE.'mypage.php';
+        } else {
+            header('Location: main.php');
+        }
         break;
 
     default:

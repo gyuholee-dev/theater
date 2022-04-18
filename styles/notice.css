@@ -1,12 +1,42 @@
 /*------------------------*/
-a { text-decoration: none; color: inherit; }
+a {
+  text-decoration: none;
+  color: inherit;
+}
 
-section { padding: 30px; margin: 0 auto; list-style: none; width: 100%; }
+section {
+  padding: 30px;
+  margin: 0 auto;
+  list-style: none;
+  width: 100%;
+}
 
-section .tab_type1 ul { display: flex; border-bottom: 1px solid #5da62b; }
+section .tab_type1 ul {
+  display: flex;
+  border-bottom: 1px solid #5da62b;
+}
 
-section .tab_type1 ul li { flex: 1; border: 1px solid #ddd; border-left: none; }
+section .tab_type1 ul li {
+  flex: 1;
+  border: 1px solid #ddd;
+  border-left: none;
+}
 
-section .tab_type1 ul li :first-child { border-left: 1px solid #ddd; }
+section .tab_type1 ul li :first-child {
+  border-left: 1px solid #ddd;
+}
 
-section .tab_type1 ul li a { display: block; height: 60px; font-size: 1em; color: #505050; text-align: center; line-height: 60px; }
+section .tab_type1 ul li a {
+  display: block;
+  height: 60px;
+  font-size: 1em;
+  color: #505050;
+  text-align: center;
+  line-height: 60px;
+}
+
+.moviebox {
+  width: 100%;
+  height: 100%;
+  border-bottom: 1px solid;
+}
