@@ -29,8 +29,9 @@ require_once 'includes/start.php';
             <div class="moviebox">
                 <table class="theat">
                     <tr>
-                        <td colspan="4" align="center"></td>
+                        <td colspan="5" align="center">
                            <h3>공지사항</h3>
+                        </td>   
                     </tr>
                     <tr>
                         <td>번호</td>
@@ -40,85 +41,87 @@ require_once 'includes/start.php';
                         <td>조회</td>
                     </tr>
                     <tr>
-                        <td>공지</td>
+                        <td>111</td>
                         <td>[이용안내] 회원가입 안내입니다.</td>
-                        <td>[셔틀버스안내] 셔틀버스 운행 안내</td>
+                        <td>관리자</td>
                         <td>2022-04-14</td>
                         <td>10</td>
                     </tr>
                     <tr>
-                        <td>공지</td>
-                        <td></td>
-                        <td></td>
+                        <td>111</td>
+                        <td>[셔틀버스안내] 셔틀버스 운행안내</td>
+                        <td>관리자</td>
                         <td>2022-04-14</td>
                         <td>10</td>
                     </tr>
                     <tr>
-                        <td>공지</td>
-                        <td></td>
-                        <td></td>
+                        <td>111</td>
+                        <td>4월 주요 일정 안내(영화))</td>
+                        <td>관리자</td>
                         <td>2022-04-14</td>
                         <td>10</td>
                     </tr>
                     <tr>
-                        <td>공지</td>
-                        <td></td>
-                        <td></td>
+                        <td>111</td>
+                        <td>4월 주요 일정 안내(공연)</td>
+                        <td>관리자</td>
                         <td>2022-04-14</td>
                         <td>10</td>
                     </tr>
                     <tr>
-                        <td>공지</td>
-                        <td></td>
-                        <td></td>
+                        <td>111</td>
+                        <td>개관 기념 공연 안내</td>
+                        <td>관리자</td>
                         <td>2022-04-14</td>
                         <td>100</td>
                     </tr>
                     <tr>
-                        <td>공지</td>
-                        <td></td>
-                        <td></td>
+                        <td>111</td>
+                        <td>[자원봉사자모집] 개관 기념 자원봉사자 모집합니다.</td>
+                        <td>관리자</td>
                         <td>2022-04-14</td>
                         <td>10</td>
                     </tr>
                     <tr>
-                        <td>공지</td>
-                        <td></td>
-                        <td></td>
+                        <td>111</td>
+                        <td>[이용안내] 연간회원권 판매 시작합니다.</td>
+                        <td>관리자</td>
                         <td>2022-04-14</td>
                         <td>100</td>
                     </tr>
                     <tr>
-                        <td>공지</td>
-                        <td></td>
-                        <td></td>
+                        <td>111</td>
+                        <td>온라인예매사이트 오픈기념 이벤트</td>
+                        <td>관리자</td>
                         <td>2022-04-14</td>
                         <td>10</td>
                     </tr>
                     <tr>
-                        <td>공지</td>
-                        <td></td>
-                        <td></td>
+                        <td>111</td>
+                        <td>3월 주요 일정 안내(영화))</td>
+                        <td>관리자</td>
                         <td>2022-04-14</td>
                         <td>10</td>
                     </tr>
                     <tr>
-                        <td>공지</td>
-                        <td></td>
-                        <td></td>
+                        <td>111</td>
+                        <td>3월 주요 일정 안내(공연)</td>
+                        <td>관리자</td>
                         <td>2022-04-14</td>
                         <td>10</td>
                     </tr>
                     <tr>
-                        <td>공지</td>
-                        <td></td>
-                        <td></td>
+                        <td>111</td>
+                        <td>[안내] 사회적 거리두기 관련 대처요법</td>
+                        <td>관리자</td>
                         <td>2022-04-14</td>
                         <td>1</td>
                     </tr>
+                    <tr>
+                        <td colspan="5" align="center"></td>
+                    </tr>        
                 </table>
             </div>
-            
         </section>
     </main>
     <footer>

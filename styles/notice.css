@@ -36,7 +36,14 @@ section .tab_type1 ul li a {
 }
 
 .moviebox {
-  width: 100%;
-  height: 100%;
-  border-bottom: 1px solid;
+  width: 300%;
+  height: 300px;
+  margin-top: 2px solid;
+  border-top: 2px solid;
+  border-collapse: collapse;
+}
+
+.moviebox .th, .moviebox td {
+  border-collapse: collapse;
+  border: 1px solid grey;
 }
