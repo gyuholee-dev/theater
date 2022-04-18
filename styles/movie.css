@@ -1,7 +1,44 @@
-#content { width: 900px; text-align: center; padding: 10px; }
+/*------------------------*/
+a { text-decoration: none; color: inherit; }
 
-#content .title { width: 100%; margin-top: 20px; padding: 15px; border: 3px solid; }
+main section { width: 100%; max-width: 1200px; }
 
-#content .title .post { width: 200px; height: 140px; margin-top: 20px; border: 3px solid; }
+main section .content1 { width: 100%; background-color: #282829; }
 
-#content .box2 { width: 500px; height: 400px; border-bottom: 6px black; }
+main section .content1 .conbox { position: relative; width: 1200px; height: 400px; display: flex; padding: 10px; }
+
+main section .content1 .conbox .box { margin: 0 auto; width: 250px; height: 300px; margin-top: 15px; }
+
+main section .content1 .conbox .box .conimg { width: 250px; height: 350px; overflow: hidden; border-radius: 15px; margin-left: 0px; }
+
+main section .content1 .conbox .box .conimg > img { width: 100%; height: 100%; }
+
+main section .content1 .conbox .box .context { width: 250px; height: 90px; padding-top: 20px; text-align: center; color: #ffffff; }
+
+main section .content1 .conbox .box .context > p { font-size: 1em; padding-bottom: 10px; }
+
+main section .content1 .conbox .box_info { width: 890px; height: 350px; margin-top: 10px; margin-left: 0px; color: #ffffff; border-radius: 10px; }
+
+main section .content1 .conbox .box_info .m_title { width: 400px; height: 40px; font-size: 2em; margin-top: 10px; font-weight: bold; margin-left: 10px; }
+
+main section .content1 .conbox .box_info .m_text { width: 850px; height: 220px; margin-top: 10px; font-size: 1.1em; margin-left: 10px; margin-top: 30px; }
+
+main section .content1 .conbox .box_info .m_ticket { width: 200px; height: 30px; text-align: center; line-height: 0px; padding: 40px; font-size: 1.5em; border-radius: 15px; margin-top: -50px; margin-left: 650px; background-color: #fb4357; color: #ffffff; }
+
+main section .content2 { width: 100%; height: 500px; border: 1px solid #ddd; }
+
+main section .content2 .box_story { width: 1150px; height: 500px; margin-left: 20px; margin-top: 20px; }
+
+main section .content2 .box_story .m_title { width: 400px; height: 40px; font-size: 1.5em; margin-top: 10px; font-weight: bold; }
+
+main section .content2 .box_story .m_text { width: 1050px; height: 430px; margin-top: 10px; font-size: 1em; }
+
+main section .content3 { width: 100%; height: 520px; border: 1px solid #ddd; }
+
+main section .content3 .contitle { width: 400px; height: 40px; font-size: 1.5em; margin-top: 10px; font-weight: bold; margin-left: 20px; }
+
+main section .content3 .conbox { width: 1200px; height: 230px; display: flex; }
+
+main section .content3 .conbox .box { margin: 0 auto; width: 380px; height: 210px; margin-top: 0px; margin-left: 10px; }
+
+main section .content3 .conbox .box > img { width: 100%; height: auto; border-radius: 10px; }
