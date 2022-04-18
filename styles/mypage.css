@@ -1,12 +1,28 @@
+#userdata { display: flex; padding: 15px; flex-direction: column; line-height: 1.6; }
+
+#userdata > .title { font-size: 1.5em; font-weight: bold; margin-top: 15px; margin-bottom: 15px; border-bottom: 1px solid gray; }
+
+#userdata .content { padding: 15px 25px; display: flex; align-items: center; justify-content: center; border-radius: 15px; background-color: #eee; }
+
+#userdata .content .wrap { display: flex; flex-direction: row; justify-content: center; width: 100%; max-width: 960px; }
+
+#userdata .content .wrap > div { display: flex; flex-grow: 1; justify-content: center; margin-right: 60px; }
+
+#userdata .content .title { font-weight: bold; font-size: 1.25em; margin-right: 25px; padding: 3px 0; }
+
+#userdata .content .data { padding: 5px; }
+
 #purchased { display: flex; padding: 15px; flex-direction: column; line-height: 1.6; }
 
-#purchased > .title { font-size: 1.5em; font-weight: bold; margin-top: 15px; margin-bottom: 15px; }
+#purchased > .title { font-size: 1.5em; font-weight: bold; margin-top: 15px; margin-bottom: 15px; border-bottom: 1px solid gray; }
 
-#purchased .content { padding: 0 25px; display: flex; flex-direction: column; }
+#purchased .content { padding: 0 25px; display: flex; flex-direction: column; align-items: center; border-radius: 15px; background-color: #eee; }
 
-#purchased .content .ticket { height: 140px; display: flex; border: 1px solid grey; border-radius: 15px; padding: 10px; margin-bottom: 15px; }
+#purchased .content .ticket { max-width: 960px; height: 160px; display: flex; border: 1px solid grey; border-radius: 15px; padding: 10px; margin-bottom: 15px; background-color: white; }
 
-#purchased .content .ticket .topimg { width: 84px; margin-right: 25px; overflow: hidden; display: flex; align-items: center; justify-content: center; border-radius: 8px; }
+#purchased .content .ticket:first-child { margin-top: 15px; }
+
+#purchased .content .ticket .topimg { width: 96px; margin-right: 25px; overflow: hidden; display: flex; align-items: center; justify-content: center; border-radius: 8px; }
 
 #purchased .content .ticket .topimg img { height: 100%; }
 
@@ -16,8 +32,10 @@
 
 #purchased .content .ticket .info .title { font-weight: bold; font-size: 1.25em; margin-top: 5px; margin-bottom: 5px; border-bottom: 1px solid grey; }
 
-#purchased .content .ticket .payment { display: flex; flex-direction: column; width: 160px; word-break: keep-all; margin-left: 25px; /* .date { text-align: right; } */ }
+#purchased .content .ticket .payment { display: flex; flex-direction: column; width: 160px; padding: 5px 20px; word-break: keep-all; margin-left: 25px; }
 
-#purchased .content .ticket .payment .points { text-align: center; }
+#purchased .content .ticket .payment .date { text-align: right; }
 
-#purchased .content .ticket .payment input { cursor: pointer; margin-top: auto; align-self: center; font-size: 1em; font-weight: bold; width: fit-content; min-width: 120px; padding: 5px 10px; }
+#purchased .content .ticket .payment .points { text-align: right; margin-bottom: 5px; }
+
+#purchased .content .ticket .payment input { cursor: pointer; align-self: center; font-size: 1em; width: fit-content; min-width: 120px; padding: 5px 10px; }

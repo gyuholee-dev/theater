@@ -1,3 +1,48 @@
+#userdata {
+    display: flex;
+    padding: 15px;
+    flex-direction: column;
+    line-height: 1.6;
+    >.title {
+        font-size: 1.5em;
+        font-weight: bold;
+        margin-top: 15px;
+        margin-bottom: 15px;
+        border-bottom: 1px solid gray;
+    }
+    .content {
+        padding: 15px 25px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 15px;
+        background-color: #eee;
+        .wrap {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            width: 100%;
+            max-width: 960px;
+            >div {
+                display: flex;
+                flex-grow: 1;
+                justify-content: center;
+                margin-right: 60px;
+            }
+        }
+        .title {
+            font-weight: bold;
+            font-size: 1.25em;
+            margin-right: 25px;
+            padding: 3px 0;
+        }
+        .data {
+            padding: 5px;
+        }
+    }
+}
+
+
 #purchased {
     display: flex;
     padding: 15px;
@@ -8,20 +53,29 @@
         font-weight: bold;
         margin-top: 15px;
         margin-bottom: 15px;
+        border-bottom: 1px solid gray;
     }
     .content {
         padding: 0 25px;
         display: flex;
         flex-direction: column;
+        align-items: center;
+        border-radius: 15px;
+        background-color: #eee;
         .ticket {
-            height: 140px;
+            max-width: 960px;
+            height: 160px;
             display: flex;
             border: 1px solid grey;
             border-radius: 15px;
             padding: 10px;
             margin-bottom: 15px;
+            background-color: white;
+            &:first-child {
+                margin-top: 15px;
+            }
             .topimg {
-                width: 84px;
+                width: 96px;
                 margin-right: 25px;
                 overflow: hidden;
                 display: flex;
@@ -46,27 +100,28 @@
                     margin-top: 5px;
                     margin-bottom: 5px;
                     border-bottom: 1px solid grey;
-
                 }
             }
             .payment {
                 display: flex;
                 flex-direction: column;
                 width: 160px;
+                padding: 5px 20px;
                 word-break: keep-all;
                 margin-left: 25px;
-                /* .date {
+                .date {
                     text-align: right;
-                } */
+                }
                 .points {
-                    text-align: center;
+                    text-align: right;
+                    margin-bottom: 5px;
                 }
                 input {
                     cursor: pointer;
-                    margin-top: auto;
+                    // margin-top: auto;
                     align-self: center;
                     font-size: 1em;
-                    font-weight: bold;
+                    // font-weight: bold;
                     width: fit-content;
                     min-width: 120px;
                     padding: 5px 10px;
