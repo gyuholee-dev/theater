@@ -78,7 +78,11 @@ function makeCode($max=32, $upper=false)
 function checkId($userid)
 {
     global $DB;
-    $sql = "SELECT * FROM travel_member WHERE userid = '$userid' ";
+    $config = openJson(CONF.'admin.json');
+    $table = $config['table'];
+    $id = $config['columns']['id'][0];
+    
+    $sql = "SELECT * FROM $table WHERE $id = '$userid' ";
     $res = mysqli_query($DB, $sql);
     return mysqli_num_rows($res);
 }

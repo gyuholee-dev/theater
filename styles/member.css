@@ -1,6 +1,12 @@
 section#member { display: flex; flex-direction: column; align-items: center; min-height: 600px; }
 
-#inputbox { min-width: 340px; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 15px; border-radius: 10px; border: 1px solid rgba(0, 0, 0, 0.25); box-shadow: 0 2px 16px rgba(0, 0, 0, 0.1); background-color: white; margin-top: 80px; }
+section#member .btn { font-size: 0.95em; padding: 5px 10px; min-width: 80px; }
+
+section#member .btn:hover { cursor: pointer; }
+
+section#member input[type=radio], section#member input[type=checkbox] { margin-right: 5px; }
+
+#inputbox { min-width: 340px; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 15px; border-radius: 10px; border: 1px solid rgba(0, 0, 0, 0.25); box-shadow: 0 2px 16px rgba(0, 0, 0, 0.1); background-color: white; margin-top: 80px; margin-bottom: 120px; }
 
 #inputbox.login { margin-top: 80px; }
 
@@ -26,7 +32,7 @@ section#member { display: flex; flex-direction: column; align-items: center; min
 
 #inputbox table input[type=file] { height: 32px; min-width: initial; width: 200px; }
 
-#inputbox table input.btn.small { font-size: 0.9em; height: 24px; min-width: initial; width: 50px; margin-left: -58px; }
+#inputbox table input.btn.small { font-size: 0.66em; height: 24px; min-width: initial; width: 50px; padding: 3px; margin-left: -58px; }
 
 #inputbox table input.btn.small:hover { background-color: #ddd; }
 

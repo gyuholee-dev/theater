@@ -6,6 +6,20 @@ section#member {
     flex-direction: column;
     align-items: center;
     min-height: 600px;
+    .btn {
+        font-size: 0.95em;
+        padding: 5px 10px;
+        min-width: 80px;
+        &:hover {
+            cursor: pointer;
+        }
+    }
+    input {
+        &[type=radio],
+        &[type=checkbox] {
+            margin-right: 5px;
+        }
+    }
 }
 
 #inputbox {
@@ -20,6 +34,7 @@ section#member {
     box-shadow: 0 2px 16px rgba(black, 0.1);
     background-color: white;
     margin-top: 80px;
+    margin-bottom: 120px;
 
     &.login {
         margin-top: 80px;
@@ -95,10 +110,11 @@ section#member {
             }
 
             &.btn.small {
-                font-size: 0.9em;
+                font-size: 0.66em;
                 height: 24px;
                 min-width: initial;
                 width: 50px;
+                padding: 3px;
                 margin-left: -58px;
 
                 &:hover {

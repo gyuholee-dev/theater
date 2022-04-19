@@ -45,12 +45,12 @@ if (isset($_POST['confirm'])) {
     </header>
     <main>
         <section id="member">
-            <div id="inputbox" class="$ACT">
+            <div id="inputbox" class="login">
                 <div class="title">로그인</div>
                 <form method="post" action="">
                     <table>
                         <tr>
-                            <td>사용자</td>
+                            <td>아이디</td>
                             <td><input type="text" name="userid" value="" required></td>
                         </tr>
                         <tr>
